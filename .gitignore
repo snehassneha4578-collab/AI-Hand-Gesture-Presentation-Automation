@@ -1,0 +1,33 @@
+﻿__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+.venv/
+venv/
+env/
+
+.vscode/
+.idea/
+
+*.log
+*.tmp
+
+# Large/generated datasets
+dataset/*.csv
+dataset/**/*.csv
+
+# Generated model files
+trained_model/*.pkl
+trained_model/*.joblib
+
+# MediaPipe model asset
+models/*.task
+
+# Generated reports/results
+dataset/*.txt
+dataset/**/*.txt
+
+# Personal/local files
+.DS_Store
+Thumbs.db

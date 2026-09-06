@@ -87,6 +87,7 @@ last_command_time = 0.0
 
 command_log = []
 blocked_commands = 0
+blocked_commands = 0
 
 frame_count = 0
 hand_count = 0
@@ -257,6 +258,9 @@ with HandLandmarker.create_from_options(options) as landmarker:
                 if command.endswith("_BLOCKED"):
                     blocked_commands += 1
 
+                if command.endswith("_BLOCKED"):
+                    blocked_commands += 1
+
                 command_log.append({
                     "gesture": prediction,
                     "command": command,
@@ -271,6 +275,7 @@ with HandLandmarker.create_from_options(options) as landmarker:
                 locked = True
                 neutral_count = 0
                 rearm_count = 0
+                fresh_gesture_required = False
                 fresh_gesture_required = False
                 rearm_count = 0
 
@@ -454,6 +459,7 @@ print(f"Average FPS      : {fps:.2f}")
 
 print(f"Commands executed: {len(command_log)}")
 print(f"Boundary blocks   : {blocked_commands}")
+print(f"Boundary blocks   : {blocked_commands}")
 print(f"Final slide      : {current_slide}")
 print(
     f"Presentation state: "
@@ -485,6 +491,7 @@ lines.append(f"Hand frames      : {hand_count}")
 lines.append(f"Hand visibility  : {visibility:.2f}%")
 lines.append(f"Average FPS      : {fps:.2f}")
 lines.append(f"Commands executed: {len(command_log)}")
+lines.append(f"Boundary blocks: {blocked_commands}")
 lines.append(f"Boundary blocks: {blocked_commands}")
 lines.append(f"Final slide      : {current_slide}")
 lines.append("")

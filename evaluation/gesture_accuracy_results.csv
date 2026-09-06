@@ -1,0 +1,5 @@
+Gesture,Correct,Tested,Accuracy_Percent,Evaluation_Type
+ONE,10,10,100.0,Controlled live calibration
+TWO,10,10,100.0,Controlled live calibration
+THREE,11,13,84.62,Controlled live calibration
+Overall,31,33,93.94,Controlled live calibration

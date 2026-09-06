@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AI-Based Hand Gesture Recognition & Intelligent Presentation Automation System
 
 ## 1. Project Overview
@@ -46,6 +47,58 @@ The prototype is particularly suitable for controlled presentation environments 
 ## 4. System Architecture
 
 The implemented processing pipeline is:
+=======
+﻿# AI-Based Hand Gesture Recognition & Intelligent Presentation Automation System
+
+## 1. Project Overview
+
+The AI-Based Hand Gesture Recognition & Intelligent Presentation Automation System is a real-time computer-vision system that enables users to control presentation software through natural hand gestures.
+
+The system replaces conventional keyboard, mouse, and presentation-clicker interactions with contactless gesture-based commands.
+
+The implemented prototype uses OpenCV 5 for real-time video processing, MediaPipe Hand Landmarker for 21-point hand landmark extraction, personalized live-domain gesture recognition, a safety-focused command engine, and Microsoft PowerPoint automation.
+
+An AWS DynamoDB component is used for cloud-based session analytics storage.
+
+---
+
+## 2. Problem Statement
+
+Traditional presentation systems require physical interaction with keyboards, mice, or presentation remotes.
+
+This can interrupt the presenter’s flow and is inconvenient in situations where the presenter wants to remain away from the computer.
+
+The project addresses this problem by providing a contactless interface in which simple hand gestures can be interpreted as presentation commands.
+
+The primary implemented gesture mapping is:
+
+| Gesture | Action                 |
+| ------- | ---------------------- |
+| ONE     | Previous Slide         |
+| TWO     | Next Slide             |
+| THREE   | Start / Exit Slideshow |
+
+---
+
+## 3. Target Users
+
+The system is intended for:
+
+* Students and teachers
+* Technical presenters
+* Conference speakers
+* Demonstrators
+* Trainers
+* Users requiring a contactless presentation interface
+
+The prototype is particularly suitable for controlled presentation environments where the camera can clearly observe the user's hand.
+
+---
+
+## 4. System Architecture
+
+The complete implemented processing pipeline is:
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 **Webcam**
 
@@ -93,6 +146,11 @@ The implemented processing pipeline is:
 
 **AWS DynamoDB**
 
+<<<<<<< HEAD
+=======
+### Major Components
+
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 ### 4.1 Webcam Input
 
 The webcam provides continuous video frames to the real-time vision pipeline.
@@ -104,6 +162,7 @@ OpenCV 5 performs the substantive image/video processing stage, including:
 * Webcam capture
 * Frame processing
 * Image conversion
+<<<<<<< HEAD
 * Real-time visualization
 * FPS measurement
 * Dashboard rendering
@@ -117,6 +176,21 @@ The validated environment uses:
 MediaPipe Hand Landmarker detects the user's hand and extracts 21 hand landmarks.
 
 Each landmark contains X, Y, and Z coordinates:
+=======
+* Real-time display
+* FPS measurement
+* Visualization and dashboard rendering
+
+The project was verified using:
+
+**OpenCV version: 5.0.0**
+
+### 4.3 MediaPipe Hand Landmarker
+
+MediaPipe detects the user's hand and extracts 21 anatomical landmarks.
+
+Each landmark contains X, Y, and Z coordinates, producing:
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 **21 × 3 = 63 raw landmark features**
 
@@ -124,11 +198,19 @@ Each landmark contains X, Y, and Z coordinates:
 
 The system uses raw landmark coordinates together with engineered geometric and direction-related features.
 
+<<<<<<< HEAD
 Multiple feature representations were investigated during development, including:
 
 * Raw landmark features
 * Relative positions
 * Geometric features
+=======
+The project went through multiple feature and recognition experiments, including:
+
+* Raw landmark features
+* Geometric features
+* Relative positions
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 * Direction features
 * Orientation normalization
 * Finger-state analysis
@@ -136,7 +218,11 @@ Multiple feature representations were investigated during development, including
 
 ### 4.5 Gesture Recognition
 
+<<<<<<< HEAD
 Multiple recognition approaches were evaluated during development:
+=======
+Multiple machine-learning approaches were evaluated during development:
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 * Support Vector Machine
 * Random Forest
@@ -145,7 +231,11 @@ Multiple recognition approaches were evaluated during development:
 * Hierarchical recognition
 * Personalized/live-domain calibration
 
+<<<<<<< HEAD
 The final real-time controller uses **live-domain gesture prototypes and direction-related features**, combined with safety and temporal decision logic.
+=======
+The final real-time controller uses live-domain gesture prototypes and direction-related features.
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 ### 4.6 Safety Engine
 
@@ -154,7 +244,11 @@ Because an incorrect gesture could cause an unintended presentation action, the 
 Implemented mechanisms include:
 
 * Temporal stability filtering
+<<<<<<< HEAD
 * Prediction-margin filtering
+=======
+* Margin filtering
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 * Neutral-state unlocking
 * Re-arm requirement
 * Fresh-gesture requirement
@@ -164,7 +258,11 @@ Implemented mechanisms include:
 * Presentation boundary protection
 * False-trigger prevention
 
+<<<<<<< HEAD
 The system therefore does not execute a presentation action from a single unstable frame.
+=======
+The system therefore does not immediately execute an action from a single unstable frame.
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 ---
 
@@ -178,23 +276,35 @@ The recognized gesture is converted into an application-level intent.
 | TWO                | NEXT       | Move to next slide      |
 | THREE              | START/EXIT | Start or exit slideshow |
 
+<<<<<<< HEAD
 PowerPoint automation was directly tested using **Microsoft PowerPoint COM automation**.
 
 Previous, next, start, and exit operations were successfully verified.
 
 The controller also rejects commands when the slideshow is not running or when presentation boundaries prevent the requested action.
 
+=======
+PowerPoint automation was directly tested using Microsoft PowerPoint COM automation.
+
+Previous, next, start, and exit operations were successfully verified.
+
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 ---
 
 ## 6. Real-Time Performance
 
+<<<<<<< HEAD
 A live-domain real-time test processed:
+=======
+A real-time domain test processed:
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 * Frames: **2,079**
 * Hand frames: **1,739**
 * Hand visibility: **83.65%**
 * Average FPS: **25.86**
 
+<<<<<<< HEAD
 This demonstrates real-time operation of the vision pipeline on the development system.
 
 A separate controlled safety/presentation test achieved:
@@ -203,6 +313,11 @@ A separate controlled safety/presentation test achieved:
 * Average FPS: **29.58**
 
 Performance can vary depending on camera conditions, hand visibility, lighting, and system load.
+=======
+This demonstrates that the vision pipeline operates at real-time frame rates on the development system.
+
+A separate controlled safety/presentation test achieved approximately **29.58 FPS** with **91.73% hand visibility**.
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 ---
 
@@ -217,23 +332,37 @@ The strongest controlled live-calibration evaluation produced:
 | THREE       |     11/13 |     84.62% |
 | **Overall** | **31/33** | **93.94%** |
 
+<<<<<<< HEAD
 ### Important Qualification
+=======
+### Important qualification
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 The **93.94% result is a controlled real-time recognition measurement using live calibration/prototypes**.
 
 It is **not an unseen-user or universal accuracy claim**.
 
+<<<<<<< HEAD
 This distinction is important because the experiments demonstrated measurable differences between calibration data and live operating data.
 
 The result should therefore be interpreted as evidence of the prototype's recognition capability under controlled calibrated conditions.
+=======
+The distinction is important because the experiments demonstrated measurable domain differences between calibration data and live operating data.
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 ---
 
 ## 8. Domain-Shift Analysis
 
+<<<<<<< HEAD
 The project explicitly investigated differences between calibration data and live operating data.
 
 Observed results:
+=======
+The project explicitly investigated the difference between calibration and live data.
+
+Results:
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 * Average feature shift: **1.2486 SD**
 * Features exceeding 2 SD: **8/45**
@@ -242,13 +371,21 @@ Observed results:
 
 The TWO gesture exhibited the largest class-specific feature shift.
 
+<<<<<<< HEAD
 This analysis demonstrates that recognition performance can change when operating conditions differ from those used during calibration.
+=======
+This analysis demonstrates that the system's recognition performance can change when the operating conditions differ from the conditions used for calibration.
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 ---
 
 ## 9. Domain Adaptation
 
+<<<<<<< HEAD
 Live-domain adaptation was evaluated to determine whether adapting gesture prototypes to the current operating environment improves recognition.
+=======
+Live-domain adaptation was evaluated to determine whether adapting prototypes to the current operating environment improves recognition.
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 | Method                         | Accuracy |
 | ------------------------------ | -------: |
@@ -260,9 +397,15 @@ The 50/50 adaptation produced an improvement of:
 
 **+15.33 percentage points**
 
+<<<<<<< HEAD
 These results support the use of live/personal calibration while also demonstrating that generalized recognition remains a limitation.
 
 The pure live-centroid result represents **within-session performance** and is not treated as unseen-user generalization.
+=======
+This supports the use of live/personal calibration while also demonstrating that generalized recognition remains a limitation.
+
+The pure live-centroid result represents within-session performance and is not treated as unseen-user generalization.
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 ---
 
@@ -297,9 +440,15 @@ Example session analytics include:
 * Safety status
 * AWS connection status
 
+<<<<<<< HEAD
 A real project evaluation record was successfully written to and verified from DynamoDB.
 
 AWS credentials are maintained outside the source repository and are not stored in project files.
+=======
+The project successfully verified a real evaluation record in DynamoDB.
+
+No AWS credentials are stored in the source repository.
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 ---
 
@@ -309,7 +458,11 @@ Presentation automation requires more than gesture classification because an inc
 
 The safety architecture therefore uses a state-based command engine.
 
+<<<<<<< HEAD
 A command must satisfy appropriate recognition and safety conditions before execution.
+=======
+A command must satisfy appropriate stability and safety conditions before execution.
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 Implemented protections include:
 
@@ -342,15 +495,25 @@ Observed limitations include:
 * Reduced recognition coverage when safety thresholds are overly conservative
 * Limited evidence for unseen-user generalization
 
+<<<<<<< HEAD
 Mitigation strategies include:
+=======
+These limitations are mitigated through:
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 * Live calibration
 * Temporal stability
 * Margin filtering
+<<<<<<< HEAD
 * Neutral-state unlocking
 * Re-arm logic
 * Fresh-gesture requirements
 * THREE edge-trigger protection
+=======
+* Neutral unlocking
+* Re-arm logic
+* Edge-trigger protection
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 * Domain analysis
 * Explicit rejection of uncertain commands
 
@@ -375,13 +538,21 @@ The dashboard provides information such as:
 * PowerPoint status
 * AWS verification status
 
+<<<<<<< HEAD
 This allows both the operator and evaluator to observe important internal system states during a demonstration.
+=======
+This allows the operator and evaluator to observe the internal state of the system during a demonstration.
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 ---
 
 ## 14. Evaluation Evidence
 
+<<<<<<< HEAD
 The project maintains evaluation artifacts covering:
+=======
+The project maintains separate evaluation artifacts covering:
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 * Gesture accuracy
 * System performance
@@ -391,6 +562,7 @@ The project maintains evaluation artifacts covering:
 * Real-time operation
 * PowerPoint integration
 * Failure cases
+<<<<<<< HEAD
 * Robustness analysis
 
 The final evaluation package identifies the project as a:
@@ -398,11 +570,20 @@ The final evaluation package identifies the project as a:
 **FUNCTIONAL COMPETITION-READY PROTOTYPE**
 
 The remaining focus is primarily broader validation and final competition submission packaging.
+=======
+
+The final evaluation package reports the prototype as a:
+
+**FUNCTIONAL COMPETITION-READY PROTOTYPE**
+
+with the remaining work focused primarily on broader validation and submission packaging.
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 ---
 
 ## 15. Reproducibility
 
+<<<<<<< HEAD
 The project uses Python and maintains pinned dependency information through `requirements.txt`.
 
 Validated core environment:
@@ -428,6 +609,23 @@ pip install -r requirements.txt
 The repository contains the implementation, evaluation scripts, reports, and documentation required to reproduce the major evaluation stages.
 
 Generated datasets, trained model files, and the MediaPipe model asset are excluded from Git where appropriate and must be supplied/generated locally according to the project instructions.
+=======
+The project uses Python and maintains dependency information through `requirements.txt`.
+
+Core dependencies include:
+
+* Python
+* OpenCV 5
+* MediaPipe
+* NumPy
+* Pandas
+* Scikit-learn
+* PyAutoGUI
+* PyWin32
+* Boto3
+
+The repository contains the implementation, evaluation scripts, reports, and project documentation required to reproduce the major evaluation stages.
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 AWS credentials are intentionally excluded from the repository.
 
@@ -437,7 +635,11 @@ AWS credentials are intentionally excluded from the repository.
 
 The system is designed as a presentation-assistance interface and should not be used for safety-critical control.
 
+<<<<<<< HEAD
 Recognition uncertainty can occur because of:
+=======
+Recognition uncertainty can occur due to:
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 * Occlusion
 * Poor lighting
@@ -454,9 +656,15 @@ Performance claims are reported with their experimental conditions to avoid over
 
 ## 17. Current Limitations
 
+<<<<<<< HEAD
 The most important remaining technical limitation is **generalized multi-user robustness**.
 
 The current **93.94%** result should be interpreted as controlled live-calibration performance.
+=======
+The most important remaining technical limitation is generalized multi-user robustness.
+
+The current 93.94% result should be interpreted as controlled live-calibration performance.
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 Further validation should include:
 
@@ -472,6 +680,7 @@ This testing is intended to determine how well the system generalizes beyond its
 
 ---
 
+<<<<<<< HEAD
 ## 18. Competition Readiness
 
 The current prototype has demonstrated:
@@ -501,6 +710,9 @@ The project is structured as a competition-ready prototype, with final submissio
 ---
 
 ## 19. Conclusion
+=======
+## 18. Conclusion
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 
 The project demonstrates a functional real-time computer-vision system for contactless presentation control.
 
@@ -512,7 +724,10 @@ The system has demonstrated:
 
 * Real-time OpenCV 5 processing
 * 21-point hand landmark extraction
+<<<<<<< HEAD
 * 63 raw landmark features
+=======
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
 * Personalized gesture recognition
 * Controlled live recognition of **93.94%**
 * Real-time operation at approximately **25.86 FPS** in a live-domain test
@@ -525,4 +740,8 @@ The system has demonstrated:
 
 The project is therefore technically functional and suitable for competition demonstration, while broader multi-user and cross-environment testing remains necessary before making generalized accuracy claims.
 
+<<<<<<< HEAD
 **Overall Status: FUNCTIONAL COMPETITION-READY PROTOTYPE**
+=======
+**Overall Status: FUNCTIONAL COMPETITION-READY PROTOTYPE**
+>>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)

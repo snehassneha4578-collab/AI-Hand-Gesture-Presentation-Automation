@@ -1,0 +1,14 @@
+Safety Feature,Status,Evidence
+Temporal Stability,PASS,Stable gesture frame requirement
+Confidence/Margin Filter,PASS,Per-gesture margin thresholds
+Neutral Unlock,PASS,Neutral frame requirement
+Re-arm Mechanism,PASS,Fresh gesture after neutral period
+THREE Edge Trigger,PASS,THREE requires release before re-trigger
+Cooldown,PASS,Command cooldown active
+Boundary Protection,PASS,First/last slide blocked
+False Trigger Prevention,PASS,Safety engine and fresh gesture logic
+PowerPoint Previous,PASS,COM view.Previous()
+PowerPoint Next,PASS,COM view.Next()
+PowerPoint Start,PASS,SlideShowSettings.Run()
+PowerPoint Exit,PASS,COM view.Exit()
+Blocked After Exit,PASS,Next correctly refused when slideshow stopped

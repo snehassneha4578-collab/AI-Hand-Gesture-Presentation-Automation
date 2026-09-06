@@ -1,0 +1,84 @@
+============================================================
+AI HAND GESTURE RECOGNITION & INTELLIGENT PRESENTATION
+FINAL SYSTEM EVALUATION
+============================================================
+
+Generated: 2026-09-06 15:54:51
+
+IMPORTANT EVALUATION NOTE
+------------------------------------------------------------
+The 93.94% gesture accuracy is controlled live-calibration
+performance using live gesture prototypes. It is NOT claimed
+as universal unseen-user accuracy.
+
+VISION PIPELINE
+------------------------------------------------------------
+OpenCV Version             : 5.0.0
+MediaPipe Landmarks        : 21
+Raw Landmark Features     : 63
+OpenCV 5 Requirement       : PASS
+
+CONTROLLED LIVE GESTURE ACCURACY
+------------------------------------------------------------
+ONE                        : 10/10 = 100.00%
+TWO                        : 10/10 = 100.00%
+THREE                      : 11/13 = 84.62%
+Overall                    : 31/33 = 93.94%
+
+LIVE PERFORMANCE
+------------------------------------------------------------
+Step 29 Hand Visibility    : 91.73%
+Step 29 Average FPS       : 29.58 FPS
+
+LATEST POWERPOINT TEST
+------------------------------------------------------------
+Frames                     : 4593
+Hand Frames                : 2228
+Hand Visibility            : 48.51%
+Average FPS                : 26.36 FPS
+Successful Commands        : 23
+Blocked/Failed Actions     : 18
+
+The blocked actions include gestures detected after the
+PowerPoint slideshow had already exited. These were safely
+rejected by the PowerPoint controller.
+
+POWERPOINT CONTROL
+------------------------------------------------------------
+Previous Slide             : PASS
+Next Slide                 : PASS
+Start Slideshow             : PASS
+Exit Slideshow              : PASS
+
+SAFETY
+------------------------------------------------------------
+Temporal Stability         : PASS
+Confidence/Margin Filter   : PASS
+Neutral Unlock             : PASS
+Re-arm Mechanism           : PASS
+THREE Edge Trigger         : PASS
+Cooldown                   : PASS
+Boundary Protection        : PASS
+False Trigger Prevention  : PASS
+
+SYSTEM CONCLUSION
+------------------------------------------------------------
+OpenCV 5 computer-vision pipeline : PASS
+Real-time operation               : PASS
+ML gesture recognition            : PASS
+Live calibration                  : PASS
+PowerPoint automation             : PASS
+Safety mechanisms                 : PASS
+
+OVERALL STATUS: FUNCTIONAL COMPETITION-READY PROTOTYPE
+
+REMAINING COMPETITION WORK
+------------------------------------------------------------
+1. AWS meaningful deployment/component
+2. Final UI/dashboard polish
+3. Broader multi-user robustness evaluation
+4. Technical report
+5. Architecture diagram
+6. Demo video
+7. Final submission packaging
+============================================================

@@ -1,0 +1,10 @@
+Metric,Value,Unit,Test
+OpenCV,5.0.0,version,OpenCV 5 audit
+MediaPipe Landmarks,21,landmarks,Hand Landmarker
+Raw Landmark Features,63,features,X/Y/Z
+Hand Visibility,91.73,%,Step 29
+Average FPS,29.58,FPS,Step 29
+Latest Integration FPS,26.36,FPS,PowerPoint live test
+Latest Frames,4593,frames,PowerPoint live test
+Latest Hand Frames,2228,frames,PowerPoint live test
+Latest Hand Visibility,48.51,%,PowerPoint live test

@@ -1,7 +1,9 @@
-﻿# Core
-numpy
-pandas
-opencv-python
-mediapipe
-scikit-learn
-pyautogui
+﻿# Core runtime
+numpy==2.5.2
+pandas==3.0.5
+opencv-python==5.0.0
+mediapipe==1.0.1
+scikit-learn==1.9.0
+pyautogui==0.9.39
+pywin32==312
+boto3==1.43.89

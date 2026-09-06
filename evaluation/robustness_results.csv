@@ -1,0 +1,16 @@
+Category,Metric,Result,Interpretation
+Domain Shift,Average feature shift,1.2486 SD,Moderate domain shift
+Domain Shift,Features >2 SD,8/45,Some live features differ substantially
+Domain Shift,Features >3 SD,2/45,Small subset shows strong shift
+Domain Shift,Most affected gesture,TWO,Largest class-specific shift
+Adaptation,Original calibration centroids,34.00%,Poor cross-domain performance
+Adaptation,50/50 adapted centroids,49.33%,Adaptation improves recognition
+Adaptation,Pure live centroids,82.00%,Strong within-live-session performance
+Adaptation,Improvement,+15.33 percentage points,Adaptation provides measurable benefit
+Real-Time,Hand visibility,83.65%,Strong live hand detection
+Real-Time,Average FPS,25.86,Real-time operation
+Real-Time,Accepted commands,0,Threshold was intentionally conservative in this test
+Controlled Accuracy,ONE,100.00% (10/10),Controlled live-calibration result
+Controlled Accuracy,TWO,100.00% (10/10),Controlled live-calibration result
+Controlled Accuracy,THREE,84.62% (11/13),Controlled live-calibration result
+Controlled Accuracy,Overall,93.94% (31/33),Controlled live-calibration result

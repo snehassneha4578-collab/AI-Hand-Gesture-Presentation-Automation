@@ -1,0 +1,135 @@
+ROBUSTNESS & FAILURE-CASE EVALUATION
+AI-Based Hand Gesture Recognition & Intelligent Presentation Automation System
+Generated: 2026-09-06 19:41:19
+
+======================================================================
+1. PURPOSE
+======================================================================
+
+This evaluation consolidates previously completed domain-shift, adaptation,
+real-time, and controlled live recognition experiments.
+
+No new recognition experiment was performed for this report.
+
+======================================================================
+2. DOMAIN-SHIFT ANALYSIS
+======================================================================
+
+Average feature shift: 1.2486 SD
+Features exceeding 2 SD: 8/45
+Features exceeding 3 SD: 2/45
+
+Diagnosis: MODERATE DOMAIN SHIFT
+
+The TWO gesture showed the largest class-specific distribution shift.
+This demonstrates that calibration data and live operating conditions are
+not identical and that gesture recognition is affected by domain changes.
+
+======================================================================
+3. DOMAIN ADAPTATION
+======================================================================
+
+Original calibration centroids : 34.00%
+50/50 adapted centroids        : 49.33%
+Pure live centroids             : 82.00%
+
+Improvement from adaptation: +15.33 percentage points.
+
+Interpretation:
+Live-domain adaptation substantially improves recognition, but adaptation
+alone does not guarantee reliable command recognition across users or
+environments. Pure live-centroid performance represents within-session
+performance and must not be interpreted as unseen-user generalization.
+
+======================================================================
+4. REAL-TIME PERFORMANCE
+======================================================================
+
+Frames processed: 2079
+Hand frames: 1739
+Hand visibility: 83.65%
+Average FPS: 25.86
+
+The system operated at real-time frame rates while maintaining strong
+hand-detection visibility.
+
+The test accepted zero commands because the safety/command threshold was
+intentionally conservative. This is treated as a safety/coverage trade-off,
+not as evidence of command-recognition accuracy.
+
+======================================================================
+5. CONTROLLED LIVE RECOGNITION
+======================================================================
+
+ONE   : 10/10 = 100.00%
+TWO   : 10/10 = 100.00%
+THREE : 11/13 = 84.62%
+
+OVERALL: 31/33 = 93.94%
+
+IMPORTANT:
+93.94% is a controlled real-time recognition measurement using live
+calibration/prototypes. It is NOT an unseen-user or universal accuracy
+claim.
+
+======================================================================
+6. FAILURE CASES AND LIMITATIONS
+======================================================================
+
+1. Moderate calibration-to-live domain shift was observed.
+2. TWO showed the strongest feature distribution shift.
+3. Recognition performance depends on the user's live calibration.
+4. Pure live-centroid results are within-session measurements.
+5. The system has not yet established broad unseen-user generalization.
+6. Conservative safety thresholds can reduce command coverage.
+7. Lighting, distance, hand orientation, background, and user variation
+   can affect landmark distributions and recognition.
+8. Further cross-user and cross-environment testing is required before
+   making generalized accuracy claims.
+
+======================================================================
+7. MITIGATION STRATEGIES
+======================================================================
+
+- Personal/live calibration
+- Temporal stability filtering
+- Confidence/margin filtering
+- Neutral-state unlocking
+- Re-arm requirement
+- Fresh-gesture requirement
+- THREE edge-trigger protection
+- Cooldown protection
+- Boundary protection
+- Live-domain feature analysis
+
+======================================================================
+8. COMPETITION-READY INTERPRETATION
+======================================================================
+
+The evaluation demonstrates:
+
+PASS - OpenCV 5 real-time vision pipeline
+PASS - Real-time hand tracking
+PASS - Live-domain calibration capability
+PASS - Gesture command safety mechanisms
+PASS - Controlled live recognition
+PASS - Explicit failure-case analysis
+
+REMAINING VALIDATION:
+Broader multi-user and cross-environment evaluation is required to establish
+generalized real-world recognition performance.
+
+======================================================================
+9. CONCLUSION
+======================================================================
+
+The system demonstrates a functional real-time gesture-controlled
+presentation prototype with measurable recognition performance, domain-shift
+analysis, adaptation experiments, safety controls, and documented
+limitations.
+
+The strongest reported recognition result is 93.94% under controlled
+live-calibration conditions. This result is presented with appropriate
+qualification and is not treated as universal accuracy.
+
+STATUS: ROBUSTNESS EVIDENCE CONSOLIDATED

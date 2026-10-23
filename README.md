@@ -1,300 +1,359 @@
 # 🖐️ GesturePilot AI
-### AI-Based Hand Gesture Recognition & Intelligent Presentation Automation System
+### Intelligent Hand Gesture Recognition & Presentation Automation
 
 <p align="center">
-  <img src="docs/images/Main%20System%20Architecture.jpg" alt="GesturePilot AI system architecture" width="90%">
+  <img src="https://img.shields.io/badge/Computer%20Vision-OpenCV%205-00C7B7?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV 5"/>
+  <img src="https://img.shields.io/badge/Hand%20Tracking-MediaPipe-4285F4?style=for-the-badge" alt="MediaPipe"/>
+  <img src="https://img.shields.io/badge/Machine%20Learning-scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white" alt="scikit-learn"/>
+  <img src="https://img.shields.io/badge/Cloud-AWS%20DynamoDB-FF9900?style=for-the-badge&logo=amazondynamodb&logoColor=white" alt="AWS DynamoDB"/>
 </p>
 
 <p align="center">
-  <strong>Turn natural hand movements into intelligent, hands-free presentation control.</strong>
-  <br>
-  Real-time computer vision · Machine learning · Safety-first automation · AWS cloud analytics
+  <b>Control Microsoft PowerPoint with hand gestures — no physical clicker required.</b>
+  <br/>
+  Real-time computer vision, personalized gesture recognition, safety-aware command processing, and cloud-based session analytics.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/OpenCV-5.0.0-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV 5">
-  <img src="https://img.shields.io/badge/Python-3.14-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/MediaPipe-Hand%20Landmarker-00A98F?style=for-the-badge" alt="MediaPipe">
-  <img src="https://img.shields.io/badge/AWS-DynamoDB-FF9900?style=for-the-badge&logo=amazondynamodb&logoColor=white" alt="AWS DynamoDB">
-  <img src="https://img.shields.io/badge/Platform-Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Windows">
-</p>
-
-<p align="center">
-  <a href="#-overview">Overview</a> ·
-  <a href="#-gesture-playbook">Gestures</a> ·
-  <a href="#-system-architecture">Architecture</a> ·
-  <a href="#-evaluation-highlights">Evaluation</a> ·
-  <a href="#-getting-started">Getting Started</a>
+  <a href="#-project-overview">Overview</a> •
+  <a href="#-live-system-preview">Preview</a> •
+  <a href="#-gesture-controls">Gestures</a> •
+  <a href="#-system-architecture">Architecture</a> •
+  <a href="#-evaluation-results">Evaluation</a> •
+  <a href="#-installation">Installation</a>
 </p>
 
 ---
 
-## ✨ Overview
+## ✨ Project Overview
 
-**GesturePilot AI** is a real-time computer-vision application that transforms hand gestures into Microsoft PowerPoint commands. It combines OpenCV 5 video processing, MediaPipe hand landmark detection, personalized machine-learning recognition, temporal validation, and Windows PowerPoint automation.
+**GesturePilot AI** is a computer-vision-based presentation automation system that recognizes predefined hand gestures through a webcam and translates them into PowerPoint commands.
 
-The goal is simple: let presenters navigate slides naturally without repeatedly reaching for a keyboard, mouse, or physical presentation remote.
+The system combines OpenCV video processing, MediaPipe hand landmarks, personalized machine-learning recognition, temporal stability checks, command-safety controls, Windows PowerPoint automation, and AWS DynamoDB session analytics.
 
-### 💎 What makes it different?
+Instead of treating every frame as a command, GesturePilot AI checks whether a gesture is sufficiently reliable and stable before allowing an action. This helps prevent accidental slide changes and repeated commands.
 
-| Capability | What it does |
-|---|---|
-| 👁️ Real-time vision | Processes webcam frames using OpenCV 5 |
-| 🖐️ Hand intelligence | Extracts 21 hand landmarks with MediaPipe |
-| 🧠 Personalized recognition | Uses gesture features and live calibration |
-| 🛡️ Safety-first control | Validates confidence, stability, neutral state, and cooldown |
-| 🎬 PowerPoint automation | Converts accepted gestures into slide commands |
-| ☁️ Cloud analytics | Stores session evaluation records in AWS DynamoDB |
-| 📊 Measurable evaluation | Includes recognition, performance, safety, and robustness evidence |
+### What makes it different?
+
+- 🖐️ **Real-time hand tracking:** Uses 21 hand landmarks to represent hand position and structure.
+- 🧠 **Personalized recognition:** Uses machine-learning-based gesture recognition with 63 landmark coordinates/features.
+- 🛡️ **Safety-aware interaction:** Applies confidence and margin filtering, temporal stability, neutral unlock, re-arming, cooldowns, and edge-trigger protection.
+- 🎬 **PowerPoint automation:** Supports previous slide, next slide, and slideshow start/exit commands.
+- ☁️ **AWS integration:** Stores session analytics in Amazon DynamoDB.
+- 📊 **Measured evaluation:** Includes gesture, performance, robustness, and safety evaluation artifacts.
+
+## 🎥 Live System Preview
+
+The following four images are the project's existing documentation assets. They are placed in the relevant sections below so readers can understand the system before exploring its implementation.
+
+## 🏗️ System Architecture
+
+<p align="center">
+  <img src="docs/images/Main%20System%20Architecture.jpg" alt="GesturePilot AI main system architecture showing the computer vision, recognition, automation, and analytics pipeline" width="100%"/>
+</p>
+
+<p align="center"><i>Figure 1 — Main system architecture</i></p>
+
+The system follows a processing pipeline:
+
+1. Capture webcam frames.
+2. Detect and track hand landmarks.
+3. Extract the gesture feature representation.
+4. Predict the gesture and evaluate confidence.
+5. Apply stability and safety checks.
+6. Execute the permitted PowerPoint command.
+7. Record applicable session analytics in AWS DynamoDB.
 
 ---
 
-## 🖐️ Gesture Playbook
+## 🖐️ Gesture Controls
 
-Three distinct gestures control the presentation.
+GesturePilot AI uses three configured gesture classes for presentation control.
 
-| Gesture | Command | Presentation action |
-|:---:|---|---|
-| ☝️ **ONE** | `PREVIOUS` | Move to the previous slide |
-| ✌️ **TWO** | `NEXT` | Move to the next slide |
-| 🤟 **THREE** | `START / EXIT` | Start or exit the slideshow |
+| Gesture | PowerPoint action | Safety behavior |
+|---|---|---|
+| ☝️ **ONE** | Previous slide | Must satisfy recognition and stability checks |
+| ✌️ **TWO** | Next slide | Must satisfy recognition and stability checks |
+| 🤟 **THREE** | Start or exit slideshow | Uses edge-trigger protection to reduce repeated actions |
+
+**Important:** THREE is configured for slideshow start/exit; it is not a pause/resume command. Four-finger and five-finger poses are not documented as configured presentation commands in this version.
+
+### Gesture recognition and safety workflow
 
 <p align="center">
-  <strong>☝️ PREVIOUS</strong>
-  &nbsp; ← &nbsp;
-  <strong>✌️ NEXT</strong>
-  &nbsp; → &nbsp;
-  <strong>🤟 START / EXIT</strong>
+  <img src="docs/images/Gesture%20Recognition%20%26%20Safety%20Workflow.jpg" alt="Gesture recognition and safety workflow" width="100%"/>
 </p>
 
-> **Interaction principle:** A detected hand pose is not automatically a command. The safety engine validates the gesture before presentation automation is allowed.
+<p align="center"><i>Figure 2 — Gesture recognition, validation, and command-safety workflow</i></p>
+
+### Visual states: what the camera interface should communicate
+
+The camera view should make system status easy to understand at a glance.
+
+<table>
+  <tr>
+    <td width="50%" align="center">
+
+### 🟢 HAND DETECTED
+
+**Status:** Tracking active
+
+A visible hand is detected and its landmarks can be processed.
+
+`Detection active`
+
+  </td>
+  <td width="50%" align="center">
+
+### 🔴 NO HAND DETECTED
+
+**Status:** Waiting for input
+
+No usable hand is detected in the current frame. No new gesture command should be issued.
+
+`Waiting for hand`
+
+  </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+
+### 🔵 GESTURE RECOGNIZED
+
+**Status:** Candidate gesture
+
+The classifier proposes ONE, TWO, or THREE. Safety checks must still pass before execution.
+
+`Validation required`
+
+  </td>
+  <td width="50%" align="center">
+
+### 🟠 COMMAND BLOCKED
+
+**Status:** Action rejected
+
+An uncertain, unstable, repeated, or otherwise unsafe command is prevented from executing.
+
+`Safety filter active`
+
+  </td>
+  </tr>
+</table>
+
+These are **documented interface-state concepts**, not screenshots of the running camera application. Actual camera screenshots and landmark overlays should be added only when captured from the real implementation.
 
 ---
 
-## 🎨 Inside the System
+## 🧪 Gesture Samples: 2, 3, 4, and 5 Fingers
 
-### 01 — Main System Architecture
+The sample gallery below distinguishes supported commands from poses that must not be assumed to have a configured action.
 
-<p align="center">
-  <img src="docs/images/Main%20System%20Architecture.jpg" alt="Main system architecture showing the major project components" width="100%">
-</p>
+<table>
+  <tr>
+    <td width="50%" align="center">
 
-### 02 — Gesture Recognition & Safety Workflow
+**Sample 2 — Two fingers**
 
-<p align="center">
-  <img src="docs/images/Gesture%20Recognition%20%26%20Safety%20Workflow.jpg" alt="Gesture recognition and safety validation workflow" width="100%">
-</p>
+<img src="docs/images/gesture-sample-2.png" alt="Placeholder for a real two-finger gesture sample with hand landmarks" width="100%"/>
 
-### 03 — AWS Cloud Architecture
+**Configured class:** TWO  
+**Intended action:** Next slide
 
-<p align="center">
-  <img src="docs/images/AWS%20Cloud%20Architecture.jpg" alt="AWS cloud architecture for session analytics" width="100%">
-</p>
+    </td>
+    <td width="50%" align="center">
 
-### 04 — Evaluation Results Dashboard
+**Sample 3 — Three fingers**
 
-<p align="center">
-  <img src="docs/images/Evaluation%20Results%20Dashboard.jpg" alt="Evaluation results dashboard" width="100%">
-</p>
+<img src="docs/images/gesture-sample-3.png" alt="Placeholder for a real three-finger gesture sample with hand landmarks" width="100%"/>
 
----
+**Configured class:** THREE  
+**Intended action:** Start/exit slideshow
 
-## ⚙️ System Architecture
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
 
-```mermaid
-flowchart TD
-    A["📷 Webcam Input"] --> B["🎞️ OpenCV 5 Processing"]
-    B --> C["🖐️ MediaPipe Hand Landmarker"]
-    C --> D["📍 21 Landmarks"]
-    D --> E["🧮 63-Dimensional Features"]
-    E --> F["🧠 Personalized ML Recognition"]
-    F --> G{"🛡️ Safety Validation"}
-    G -->|Rejected| H["🚫 Block Command"]
-    G -->|Accepted| I["🎮 PowerPoint Automation"]
-    I --> J["📊 Session Evaluation"]
-    J --> K[("☁️ AWS DynamoDB")]
+**Sample 4 — Four fingers**
 
-    style A fill:#173B67,color:#FFFFFF,stroke:#60A5FA
-    style B fill:#392B77,color:#FFFFFF,stroke:#A78BFA
-    style F fill:#075E54,color:#FFFFFF,stroke:#34D399
-    style G fill:#78350F,color:#FFFFFF,stroke:#FBBF24
-    style I fill:#134E4A,color:#FFFFFF,stroke:#5EEAD4
-    style K fill:#7C2D12,color:#FFFFFF,stroke:#FDBA74
-```
+<img src="docs/images/gesture-sample-4.png" alt="Placeholder for a real four-finger hand pose" width="100%"/>
 
-### 🔬 The processing pipeline
+**Status:** Not a configured command  
+The system should not assign an action without an explicit mapping.
 
-1. **Capture:** Read frames from the webcam.
-2. **Detect:** Identify the hand and extract its 21 landmarks.
-3. **Represent:** Convert landmark coordinates into 63 numerical features.
-4. **Recognize:** Classify the gesture using the personalized recognition pipeline.
-5. **Validate:** Apply confidence, temporal stability, neutral-unlock, re-arm, edge-trigger, and cooldown rules.
-6. **Execute:** Issue an accepted presentation command through PowerPoint automation.
-7. **Evaluate:** Measure system behavior and record applicable session analytics.
+    </td>
+    <td width="50%" align="center">
+
+**Sample 5 — Five fingers**
+
+<img src="docs/images/gesture-sample-5.png" alt="Placeholder for a real five-finger open-palm pose" width="100%"/>
+
+**Status:** Not a configured command  
+An open palm must not be assumed to trigger a presentation action.
+
+    </td>
+  </tr>
+</table>
+
+> **Image asset note:** The four sample image paths above are planned asset locations. The images are not included in the repository merely because their paths appear in this README. Add the actual image files before expecting these four slots to render on GitHub.
 
 ---
 
-## 🛡️ Safety Engineering
+## 🛡️ Safety by Design
 
-A reliable gesture interface must prevent unintended actions, not merely recognize hand poses.
+Gesture recognition alone is not sufficient for reliable presentation control. A prediction should not automatically become a command.
 
-| Safety mechanism | Purpose |
-|---|---|
-| Confidence and margin filters | Reject uncertain predictions |
-| Temporal stability | Require consistent recognition |
-| Neutral unlock | Require a neutral state before another command cycle |
-| Re-arm logic | Prevent repeated firing from a held gesture |
-| THREE edge trigger | Prevent continuous start/exit activation |
-| Cooldown | Limit commands occurring too close together |
-| Boundary protection | Prevent invalid previous/next slide actions |
-| False-trigger prevention | Block commands that do not pass validation |
+GesturePilot AI includes safety mechanisms that were tested during project evaluation:
 
-Rejected commands are an intentional part of the safety design. A blocked command is not automatically a system failure; it must be interpreted in the context of the safety rules and application state.
+- **Confidence filtering:** Rejects predictions that do not meet the configured confidence requirement.
+- **Prediction-margin filtering:** Helps reject ambiguous classifications.
+- **Temporal stability:** Requires a gesture to remain sufficiently consistent before action.
+- **Neutral unlock:** Requires a neutral state before another gesture can be accepted where configured.
+- **Re-arming:** Helps prevent a held gesture from repeatedly issuing commands.
+- **THREE edge trigger:** Helps prevent repeated slideshow actions from one continuous gesture.
+- **Cooldown:** Reduces rapid repeated commands.
+- **Boundary protection:** Rejects invalid actions at presentation boundaries.
+- **False-trigger prevention:** Helps block unintended commands.
+
+These safeguards reduce accidental activation but do not guarantee zero false positives in every environment.
 
 ---
 
-## 📊 Evaluation Highlights
+## 📊 Evaluation Results
 
-The project includes controlled live-calibration tests, real-time performance measurements, domain-shift analysis, adaptation experiments, safety checks, and PowerPoint integration tests.
+The following results come from the project's recorded experiments. They should be interpreted within their specific test conditions, not as universal accuracy guarantees.
 
-### Recognition results
+### Controlled live-calibration test
 
-| Gesture | Correct recognitions | Result |
+| Gesture | Correct detections | Test total |
 |---|---:|---:|
-| ONE | 10 / 10 | 100% |
-| TWO | 10 / 10 | 100% |
-| THREE | 11 / 13 | 84.62% |
-| **Overall** | **31 / 33** | **93.94%** |
+| ONE | 10 | 10 |
+| TWO | 10 | 10 |
+| THREE | 11 | 13 |
+| **Overall** | **31** | **33** |
 
-> **Evaluation qualification:** The 93.94% result is from a controlled live-calibration evaluation. It is not a claim of universal accuracy or performance on unseen users and environments.
+**Observed controlled live-calibration result: 93.94% (31/33).**
 
-### Runtime and robustness
+This is a small controlled evaluation, not a claim of 93.94% accuracy for all users, cameras, lighting conditions, or unseen environments.
 
-| Metric | Observed result |
+### Real-time integration run
+
+| Metric | Recorded result |
 |---|---:|
-| Frames processed in the recorded integration run | 4,593 |
+| Frames processed | 4,593 |
 | Frames with a detected hand | 2,228 |
-| Hand visibility across processed frames | 48.51% |
-| Average processing rate | 26.36 FPS |
-| Successful commands recorded | 23 |
+| Hand-frame proportion | 48.51% |
+| Processing rate | 26.36 FPS |
+| Successful commands | 23 |
 | Blocked or failed command attempts | 18 |
 
-The recorded run included command attempts after the slideshow had exited; those actions were safely rejected. Successful commands and blocked attempts should therefore be interpreted separately.
+Some rejected actions occurred after the slideshow had exited. These rejections are part of the observed integration run and should not be interpreted as 18 successful actions.
 
-### Domain adaptation experiment
+### Domain shift and adaptation experiment
 
-| Configuration | Observed recognition result |
+| Experiment condition | Recorded result |
 |---|---:|
 | Original centroids | 34% |
-| Mixed 50/50 adaptation | 49.33% |
+| Mixed adaptation, 50/50 | 49.33% |
 | Pure live adaptation | 82% |
 
-Pure live adaptation improved the measured result by **15.33 percentage points** compared with mixed adaptation in this experiment. These are experiment-specific results, not a guarantee of performance across users or sessions.
+The pure-live condition improved the recorded result by **15.33 percentage points** compared with the 50/50 mixed condition in this experiment. These results are experiment-specific and do not establish generalization to all users.
 
-### Validation coverage
+Additional recorded domain-shift observations:
 
-- ✅ PowerPoint previous-slide, next-slide, start, and exit integration checks
-- ✅ Confidence and temporal stability checks
-- ✅ Neutral unlock, re-arm, edge-trigger, and cooldown checks
-- ✅ Boundary protection and false-trigger prevention checks
-- ✅ Robustness and domain-shift evaluation
-- ✅ AWS DynamoDB evaluation-record verification
+- Mean feature shift: **1.2486 standard deviations**
+- Features exceeding 2 SD: **8 of 45**
+- Features exceeding 3 SD: **2 of 45**
 
-Detailed evidence is maintained in the `evaluation/` directory, including the final evaluation script, result summaries, CSV metrics, and robustness report.
+### Evaluation visual
+
+<p align="center">
+  <img src="docs/images/Evaluation%20Results%20Dashboard.jpg" alt="GesturePilot AI evaluation results dashboard" width="100%"/>
+</p>
+
+<p align="center"><i>Figure 3 — Evaluation results dashboard</i></p>
+
+### Evaluation artifacts
+
+The `evaluation/` directory contains the project's evaluation scripts and recorded outputs:
+
+- `final_evaluation.py`
+- `FINAL_EVALUATION_RESULTS.txt`
+- `gesture_accuracy_results.csv`
+- `system_performance.csv`
+- `safety_results.csv`
+- `robustness_results.csv`
+- `ROBUSTNESS_EVALUATION_REPORT.txt`
+
+These files support inspection of the recorded measurements and the tests performed.
 
 ---
 
-## ☁️ AWS Integration
+## ☁️ AWS Cloud Integration
 
-**AWS DynamoDB** provides cloud-based session analytics storage.
+<p align="center">
+  <img src="docs/images/AWS%20Cloud%20Architecture.jpg" alt="GesturePilot AI AWS cloud architecture" width="100%"/>
+</p>
 
-| Setting | Configuration |
+<p align="center"><i>Figure 4 — AWS cloud architecture</i></p>
+
+GesturePilot AI integrates **Amazon DynamoDB** for session analytics.
+
+| Component | Role |
 |---|---|
-| AWS service | Amazon DynamoDB |
+| Amazon DynamoDB | Stores session analytics records |
 | Table | `GestureSessionAnalytics` |
 | Region | `ap-southeast-2` |
 | Capacity mode | On-demand |
 
-A real evaluation record was written to and verified from DynamoDB. AWS credentials are maintained outside the source repository and must not be committed.
+A live DynamoDB record was verified during implementation. This project uses DynamoDB for analytics; it does not claim to use AWS Lambda.
 
-The cloud component supports evaluation and session analytics; it is not required to claim that the core gesture-recognition pipeline itself runs in the cloud.
+---
+
+## 🧠 How the System Works
+
+```mermaid
+flowchart TD
+    A[Webcam video] --> B[OpenCV frame processing]
+    B --> C[MediaPipe hand tracking]
+    C --> D[21 hand landmarks]
+    D --> E[63 landmark features]
+    E --> F[Personalized gesture classifier]
+    F --> G{Confidence and margin checks}
+    G -->|Rejected| H[Block command]
+    G -->|Accepted| I[Temporal stability checks]
+    I --> J{Safety checks pass?}
+    J -->|No| H
+    J -->|Yes| K[Gesture action mapping]
+    K --> L[PowerPoint automation]
+    L --> M[AWS DynamoDB session analytics]
+```
+
+The diagram represents the high-level processing flow. Individual runtime behavior depends on the implemented classifier, configuration, and safety logic.
 
 ---
 
 ## 🧰 Technology Stack
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/OpenCV%205-5C3EE8?style=flat-square&logo=opencv&logoColor=white" alt="OpenCV">
-  <img src="https://img.shields.io/badge/MediaPipe-00A98F?style=flat-square" alt="MediaPipe">
-  <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" alt="scikit-learn">
-  <img src="https://img.shields.io/badge/AWS%20DynamoDB-FF9900?style=flat-square&logo=amazondynamodb&logoColor=white" alt="DynamoDB">
-  <img src="https://img.shields.io/badge/PowerPoint-C43E1C?style=flat-square&logo=microsoftpowerpoint&logoColor=white" alt="PowerPoint">
-</p>
-
-- **Language:** Python
-- **Computer vision:** OpenCV 5.0.0
-- **Hand tracking:** MediaPipe Hand Landmarker
-- **Machine learning:** scikit-learn and personalized gesture recognition
-- **Desktop integration:** Microsoft PowerPoint COM automation through `pywin32`
-- **Cloud analytics:** Amazon DynamoDB using `boto3`
-- **Evaluation:** Python test scripts, CSV reports, and robustness analysis
-
-Pinned dependency versions are provided in `requirements.txt`.
+| Technology | Purpose |
+|---|---|
+| Python | Main application and integration logic |
+| OpenCV 5 | Webcam capture and video processing |
+| MediaPipe Hand Landmarker | Hand landmark detection |
+| NumPy | Numerical feature processing |
+| pandas | Evaluation data and tabular outputs |
+| scikit-learn | Machine-learning gesture recognition |
+| pywin32 | Windows and PowerPoint COM automation |
+| boto3 | AWS SDK integration |
+| Amazon DynamoDB | Session analytics storage |
 
 ---
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Windows with a working webcam
-- Python compatible with the pinned dependencies
-- Microsoft PowerPoint desktop installed for COM-based presentation automation
-- AWS credentials configured outside the repository if cloud analytics are to be exercised
-- The required MediaPipe hand-landmarker model and other project assets
-
-### 1. Clone the repository
-
-```powershell
-git clone https://github.com/snehassneha4578-collab/AI-Hand-Gesture-Presentation-Automation.git
-Set-Location AI-Hand-Gesture-Presentation-Automation
-```
-
-### 2. Install dependencies
-
-```powershell
-python -m pip install -r requirements.txt
-```
-
-### 3. Configure required assets
-
-Verify that the hand-landmarker model and any required local configuration are available. Configure AWS credentials securely through the supported AWS credential mechanism if running cloud analytics.
-
-### 4. Run and evaluate
-
-Use the project's primary controller/UI entry point for the live application. To run the packaged evaluation suite, use:
-
-```powershell
-python evaluation/final_evaluation.py
-```
-
-Check the evaluation outputs and application logs for the observed results. The evaluation script is distinct from the live presentation controller.
-
-> **Compatibility note:** The dependency file pins specific versions. Use an environment compatible with those versions, and follow the project's model-asset and Windows PowerPoint requirements.
-
----
-
-## 📁 Project Documentation
+## 📁 Project Structure
 
 ```text
-AI-Hand-Gesture-Presentation-Automation/
-├── docs/
-│   └── images/
-│       ├── Main System Architecture.jpg
-│       ├── Gesture Recognition & Safety Workflow.jpg
-│       ├── AWS Cloud Architecture.jpg
-│       └── Evaluation Results Dashboard.jpg
+AI_Hand_Gesture_Presentation/
 ├── evaluation/
 │   ├── final_evaluation.py
 │   ├── FINAL_EVALUATION_RESULTS.txt
@@ -303,48 +362,114 @@ AI-Hand-Gesture-Presentation-Automation/
 │   ├── safety_results.csv
 │   ├── robustness_results.csv
 │   └── ROBUSTNESS_EVALUATION_REPORT.txt
+├── docs/
+│   └── images/
+│       ├── Main System Architecture.jpg
+│       ├── Gesture Recognition & Safety Workflow.jpg
+│       ├── AWS Cloud Architecture.jpg
+│       ├── Evaluation Results Dashboard.jpg
+│       ├── gesture-recognition-states.png
+│       ├── gesture-sample-2.png
+│       ├── gesture-sample-3.png
+│       ├── gesture-sample-4.png
+│       └── gesture-sample-5.png
 ├── requirements.txt
 └── README.md
 ```
 
-*This is a documentation-oriented overview of key files; the repository contains additional implementation modules, local configuration, and test assets.*
+The tree highlights the main documentation and evaluation assets. Other application modules and data files are omitted from this abbreviated view.
 
 ---
 
-## ⚠️ Limitations & Responsible Use
+## ⚙️ Installation
 
-- Recognition performance can vary with camera placement, lighting, hand position, and user-specific movement.
-- The headline accuracy comes from controlled live calibration and must not be interpreted as an unseen-user benchmark.
-- Live adaptation results are experiment-specific and may not generalize across sessions.
-- Hand visibility is not guaranteed in every webcam frame.
-- PowerPoint automation depends on application state; invalid commands should be rejected rather than forced.
-- AWS analytics require valid configuration and permissions.
-- Webcam use should be transparent and consent-based. Avoid storing or sharing unnecessary personal imagery.
+### Prerequisites
+
+- Windows
+- Python compatible with the pinned project dependencies
+- A working webcam
+- Microsoft PowerPoint desktop installed for COM-based automation
+- AWS credentials configured if using cloud analytics
+
+### 1. Clone the repository
+
+```powershell
+git clone https://github.com/snehassneha4578-collab/AI-Hand-Gesture-Presentation-Automation.git
+Set-Location AI-Hand-Gesture-Presentation-Automation
+```
+
+### 2. Create and activate a virtual environment
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+### 3. Install dependencies
+
+```powershell
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+The project uses pinned dependencies to improve reproducibility. Package availability can vary by Python version and platform, so use a compatible environment if installation fails.
+
+### 4. Configure AWS credentials
+
+If enabling DynamoDB analytics, configure credentials using an approved AWS credential provider, such as the AWS CLI profile or environment-based credentials. Do not place AWS access keys directly in source code or commit them to GitHub.
+
+Confirm that the configured identity has only the permissions required by the application.
+
+### 5. Run the application
+
+Run the project's actual entry-point script from the repository root. Check the available application files or project instructions to confirm the correct entry point before launching.
 
 ---
 
-## 🔮 Future Enhancements
+## 🧪 Testing and Validation
 
-- 🎞️ An embedded animated gesture demonstration
-- 📈 Expanded evaluation across unseen users and recording conditions
-- 🧪 Repeatable cross-session and cross-environment robustness tests
-- 📊 Richer visual analytics for recognition, latency, and rejected commands
-- ♿ Improved accessibility and calibration feedback
+The project includes checks covering:
+
+- PowerPoint previous-slide, next-slide, and slideshow start/exit automation
+- Gesture stability and confidence filtering
+- Neutral unlock and re-arming
+- THREE edge-trigger behavior
+- Cooldown and presentation boundary protection
+- False-trigger prevention
+- Recorded accuracy, performance, and robustness evaluation
+
+Refer to the evaluation artifacts for the recorded outcomes. A successful controlled test does not guarantee identical behavior on every machine or with every user.
 
 ---
 
-## 🏁 Project Status
+## ⚠️ Limitations and Responsible Use
 
-**Implementation complete — evaluation evidence available.**
+- Recognition depends on camera position, lighting, hand visibility, and the user's gesture execution.
+- Controlled live-calibration results are not a substitute for larger unseen-user evaluations.
+- The four-finger and five-finger samples are not configured commands in the documented mapping.
+- PowerPoint automation depends on a compatible Windows desktop environment with PowerPoint available.
+- AWS analytics requires valid AWS configuration, network access, and suitable permissions.
+- Blocked or failed commands must remain visible in evaluation reporting rather than being counted as successful actions.
+- Avoid exposing private webcam recordings, credentials, or sensitive session information in public repositories.
 
-The system integrates OpenCV 5 video processing, hand-landmark extraction, personalized recognition, safety-gated presentation control, PowerPoint automation, and AWS DynamoDB session analytics.
+---
 
-Competition submission tasks such as final packaging, the short demonstration video, and the submission form are separate from implementation completion.
+## 🚀 Project Status
+
+**Functional competition-ready prototype**
+
+The implementation and evaluation work is complete for the current prototype. Packaging the final submission, recording a judge-accessible demonstration, and verifying the final public repository assets are separate release tasks.
+
+## 👩‍💻 Project
+
+**Project name:** GesturePilot AI  
+**Category:** Computer Vision · Machine Learning · Human–Computer Interaction · Presentation Automation  
+**Repository:** [AI-Hand-Gesture-Presentation-Automation](https://github.com/snehassneha4578-collab/AI-Hand-Gesture-Presentation-Automation)
 
 ---
 
 <p align="center">
-  <strong>🖐️ See the gesture. 🧠 Validate the intent. 🎬 Control the presentation.</strong>
-  <br>
-  <sub>Built with computer vision, machine learning, safety engineering, and cloud analytics.</sub>
+  <b>GesturePilot AI</b>
+  <br/>
+  <i>See the gesture. Validate the intent. Execute with safety.</i>
 </p>

@@ -147,58 +147,21 @@ These are **documented interface-state concepts**, not screenshots of the runnin
 
 ## 🧪 Gesture Samples: 2, 3, 4, and 5 Fingers
 
-The sample gallery below distinguishes supported commands from poses that must not be assumed to have a configured action.
+## 🧪 Gesture Samples: 2, 3, 4, and 5 Fingers
 
-<table>
-  <tr>
-    <td width="50%" align="center">
+The gallery below shows gesture samples and distinguishes configured commands from poses that must not trigger an action.
 
-**Sample 2 — Two fingers**
+| **Two fingers — Sample 2** | **Three fingers — Sample 3** |
+|---|---|
+| <img src="docs/images/gesture-sample-2.jpg" alt="Two-finger gesture sample" width="280"/> | <img src="docs/images/gesture-sample-3.jpg" alt="Three-finger gesture sample" width="280"/> |
+| **Configured class:** TWO | **Configured class:** THREE |
+| **Intended action:** Next slide | **Intended action:** Start/exit slideshow |
 
-<img src="docs/images/gesture-sample-2.jpg" alt="Two-finger gesture sample showing hand landmarks" width="100%"/>
-
-**Configured class:** TWO  
-**Intended action:** Next slide
-
-    </td>
-    <td width="50%" align="center">
-
-**Sample 3 — Three fingers**
-
-<img src="docs/images/gesture-sample-3.jpg" alt="Three-finger gesture sample showing hand landmarks" width="100%"/>
-
-**Configured class:** THREE  
-**Intended action:** Start/exit slideshow
-
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-
-**Sample 4 — Four fingers**
-
-<img src="docs/images/gesture-sample-4.jpg" alt="Four-finger hand pose sample" width="100%"/>
-
-**Status:** Not a configured command  
-The system should not assign an action without an explicit mapping.
-
-    </td>
-    <td width="50%" align="center">
-
-**Sample 5 — Five fingers**
-
-<img src="docs/images/gesture-sample-5.jpg" alt="Five-finger open-palm gesture sample" width="100%"/>
-
-**Status:** Not a configured command  
-An open palm must not be assumed to trigger a presentation action.
-
-    </td>
-  </tr>
-</table>
-
-> **Image asset note:** The four sample image paths above are planned asset locations. The images are not included in the repository merely because their paths appear in this README. Add the actual image files before expecting these four slots to render on GitHub.
-
----
+| **Four fingers — Sample 4** | **Five fingers — Sample 5** |
+|---|---|
+| <img src="docs/images/gesture-sample-4.jpg" alt="Four-finger gesture sample" width="280"/> | <img src="docs/images/gesture-sample-5.jpg" alt="Five-finger open-palm gesture sample" width="280"/> |
+| **Status:** Not a configured command | **Status:** Not a configured command |
+| No action should be assigned without an explicit mapping. | An open palm must not be assumed to trigger a presentation action. |
 
 ## 🛡️ Safety by Design
 

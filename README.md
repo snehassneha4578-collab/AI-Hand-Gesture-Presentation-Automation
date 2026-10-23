@@ -42,9 +42,11 @@ Instead of treating every frame as a command, GesturePilot AI checks whether a g
 - ☁️ **AWS integration:** Stores session analytics in Amazon DynamoDB.
 - 📊 **Measured evaluation:** Includes gesture, performance, robustness, and safety evaluation artifacts.
 
+---
+
 ## 🎥 Live System Preview
 
-The following four images are the project's existing documentation assets. They are placed in the relevant sections below so readers can understand the system before exploring its implementation.
+The following sections contain the project's documentation images and gesture samples.
 
 ## 🏗️ System Architecture
 
@@ -90,82 +92,32 @@ GesturePilot AI uses three configured gesture classes for presentation control.
 
 The camera view should make system status easy to understand at a glance.
 
-<table>
-  <tr>
-    <td width="50%" align="center">
+| State | Meaning |
+|---|---|
+| 🟢 **HAND DETECTED** | Tracking is active, and visible hand landmarks can be processed. |
+| 🔴 **NO HAND DETECTED** | Waiting for input. No new gesture command should be issued. |
+| 🔵 **GESTURE RECOGNIZED** | The classifier proposes ONE, TWO, or THREE; safety validation is still required. |
+| 🟠 **COMMAND BLOCKED** | An uncertain, unstable, repeated, or otherwise unsafe command is prevented from executing. |
 
-### 🟢 HAND DETECTED
-
-**Status:** Tracking active
-
-A visible hand is detected and its landmarks can be processed.
-
-`Detection active`
-
-  </td>
-  <td width="50%" align="center">
-
-### 🔴 NO HAND DETECTED
-
-**Status:** Waiting for input
-
-No usable hand is detected in the current frame. No new gesture command should be issued.
-
-`Waiting for hand`
-
-  </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-
-### 🔵 GESTURE RECOGNIZED
-
-**Status:** Candidate gesture
-
-The classifier proposes ONE, TWO, or THREE. Safety checks must still pass before execution.
-
-`Validation required`
-
-  </td>
-  <td width="50%" align="center">
-
-### 🟠 COMMAND BLOCKED
-
-**Status:** Action rejected
-
-An uncertain, unstable, repeated, or otherwise unsafe command is prevented from executing.
-
-`Safety filter active`
-
-  </td>
-  </tr>
-</table>
-
-These are **documented interface-state concepts**, not screenshots of the running camera application. Actual camera screenshots and landmark overlays should be added only when captured from the real implementation.
+These are documented interface-state concepts, not screenshots of the running camera application. Actual camera screenshots and landmark overlays should be added only when captured from the real implementation.
 
 ---
 
 ## 🧪 Gesture Samples: 2, 3, 4, and 5 Fingers
 
-The gallery below shows gesture samples and distinguishes configured commands from poses that must not trigger an action.
+The gallery below shows the available gesture samples and distinguishes configured commands from poses that must not trigger an action.
 
-| Two fingers — Sample 2 | Three fingers — Sample 3 |
+| ✌️ Sample 2 — Two fingers | 🤟 Sample 3 — Three fingers |
 |---|---|
 | ![Two-finger gesture sample](docs/images/gesture-sample-2.jpg) | ![Three-finger gesture sample](docs/images/gesture-sample-3.jpg) |
 | **Configured class:** TWO | **Configured class:** THREE |
 | **Intended action:** Next slide | **Intended action:** Start/exit slideshow |
 
-| Four fingers — Sample 4 | Five fingers — Sample 5 |
+| 🖐️ Sample 4 — Four fingers | ✋ Sample 5 — Five fingers |
 |---|---|
 | ![Four-finger gesture sample](docs/images/gesture-sample-4.jpg) | ![Five-finger open-palm gesture sample](docs/images/gesture-sample-5.jpg) |
 | **Status:** Not a configured command | **Status:** Not a configured command |
 | No action should be assigned without an explicit mapping. | An open palm must not be assumed to trigger a presentation action. |
-
-    </td>
-  </tr>
-</table>
-
-> **Image asset note:** The four sample image paths above are planned asset locations. The images are not included in the repository merely because their paths appear in this README. Add the actual image files before expecting these four slots to render on GitHub.
 
 ---
 
@@ -338,10 +290,10 @@ AI_Hand_Gesture_Presentation/
 │       ├── AWS Cloud Architecture.jpg
 │       ├── Evaluation Results Dashboard.jpg
 │       ├── gesture-recognition-states.png
-│       ├── gesture-sample-2.png
-│       ├── gesture-sample-3.png
-│       ├── gesture-sample-4.png
-│       └── gesture-sample-5.png
+│       ├── gesture-sample-2.jpg
+│       ├── gesture-sample-3.jpg
+│       ├── gesture-sample-4.jpg
+│       └── gesture-sample-5.jpg
 ├── requirements.txt
 └── README.md
 ```

@@ -1,747 +1,350 @@
-<<<<<<< HEAD
-# AI-Based Hand Gesture Recognition & Intelligent Presentation Automation System
+# 🖐️ GesturePilot AI
+### AI-Based Hand Gesture Recognition & Intelligent Presentation Automation System
 
-## 1. Project Overview
+<p align="center">
+  <img src="docs/images/Main%20System%20Architecture.jpg" alt="GesturePilot AI system architecture" width="90%">
+</p>
 
-The **AI-Based Hand Gesture Recognition & Intelligent Presentation Automation System** is a real-time computer-vision system that enables users to control presentation software through natural hand gestures.
+<p align="center">
+  <strong>Turn natural hand movements into intelligent, hands-free presentation control.</strong>
+  <br>
+  Real-time computer vision · Machine learning · Safety-first automation · AWS cloud analytics
+</p>
 
-The system replaces conventional keyboard, mouse, and presentation-clicker interactions with a contactless gesture-based interface.
+<p align="center">
+  <img src="https://img.shields.io/badge/OpenCV-5.0.0-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV 5">
+  <img src="https://img.shields.io/badge/Python-3.14-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/MediaPipe-Hand%20Landmarker-00A98F?style=for-the-badge" alt="MediaPipe">
+  <img src="https://img.shields.io/badge/AWS-DynamoDB-FF9900?style=for-the-badge&logo=amazondynamodb&logoColor=white" alt="AWS DynamoDB">
+  <img src="https://img.shields.io/badge/Platform-Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Windows">
+</p>
 
-The implemented prototype uses **OpenCV 5** for real-time video processing, **MediaPipe Hand Landmarker** for 21-point hand landmark extraction, personalized live-domain gesture recognition, a safety-focused command engine, Microsoft PowerPoint automation, and **Amazon DynamoDB** for cloud-based session analytics.
-
-### Primary Gesture Mapping
-
-| Gesture | Action                 |
-| ------- | ---------------------- |
-| ONE     | Previous Slide         |
-| TWO     | Next Slide             |
-| THREE   | Start / Exit Slideshow |
-
----
-
-## 2. Problem Statement
-
-Traditional presentation systems require physical interaction with keyboards, mice, or presentation remotes.
-
-This can interrupt the presenter's flow and is inconvenient when the presenter wants to remain away from the computer.
-
-This project addresses the problem through a contactless interface in which hand gestures are detected, recognized, validated through safety logic, and converted into presentation commands.
-
----
-
-## 3. Target Users
-
-The system is intended for:
-
-* Students and teachers
-* Technical presenters
-* Conference speakers
-* Demonstrators
-* Trainers
-* Users requiring a contactless presentation interface
-
-The prototype is particularly suitable for controlled presentation environments where the camera can clearly observe the user's hand.
+<p align="center">
+  <a href="#-overview">Overview</a> ·
+  <a href="#-gesture-playbook">Gestures</a> ·
+  <a href="#-system-architecture">Architecture</a> ·
+  <a href="#-evaluation-highlights">Evaluation</a> ·
+  <a href="#-getting-started">Getting Started</a>
+</p>
 
 ---
 
-## 4. System Architecture
+## ✨ Overview
 
-The implemented processing pipeline is:
-=======
-﻿# AI-Based Hand Gesture Recognition & Intelligent Presentation Automation System
+**GesturePilot AI** is a real-time computer-vision application that transforms hand gestures into Microsoft PowerPoint commands. It combines OpenCV 5 video processing, MediaPipe hand landmark detection, personalized machine-learning recognition, temporal validation, and Windows PowerPoint automation.
 
-## 1. Project Overview
+The goal is simple: let presenters navigate slides naturally without repeatedly reaching for a keyboard, mouse, or physical presentation remote.
 
-The AI-Based Hand Gesture Recognition & Intelligent Presentation Automation System is a real-time computer-vision system that enables users to control presentation software through natural hand gestures.
+### 💎 What makes it different?
 
-The system replaces conventional keyboard, mouse, and presentation-clicker interactions with contactless gesture-based commands.
-
-The implemented prototype uses OpenCV 5 for real-time video processing, MediaPipe Hand Landmarker for 21-point hand landmark extraction, personalized live-domain gesture recognition, a safety-focused command engine, and Microsoft PowerPoint automation.
-
-An AWS DynamoDB component is used for cloud-based session analytics storage.
-
----
-
-## 2. Problem Statement
-
-Traditional presentation systems require physical interaction with keyboards, mice, or presentation remotes.
-
-This can interrupt the presenter’s flow and is inconvenient in situations where the presenter wants to remain away from the computer.
-
-The project addresses this problem by providing a contactless interface in which simple hand gestures can be interpreted as presentation commands.
-
-The primary implemented gesture mapping is:
-
-| Gesture | Action                 |
-| ------- | ---------------------- |
-| ONE     | Previous Slide         |
-| TWO     | Next Slide             |
-| THREE   | Start / Exit Slideshow |
+| Capability | What it does |
+|---|---|
+| 👁️ Real-time vision | Processes webcam frames using OpenCV 5 |
+| 🖐️ Hand intelligence | Extracts 21 hand landmarks with MediaPipe |
+| 🧠 Personalized recognition | Uses gesture features and live calibration |
+| 🛡️ Safety-first control | Validates confidence, stability, neutral state, and cooldown |
+| 🎬 PowerPoint automation | Converts accepted gestures into slide commands |
+| ☁️ Cloud analytics | Stores session evaluation records in AWS DynamoDB |
+| 📊 Measurable evaluation | Includes recognition, performance, safety, and robustness evidence |
 
 ---
 
-## 3. Target Users
+## 🖐️ Gesture Playbook
 
-The system is intended for:
+Three distinct gestures control the presentation.
 
-* Students and teachers
-* Technical presenters
-* Conference speakers
-* Demonstrators
-* Trainers
-* Users requiring a contactless presentation interface
+| Gesture | Command | Presentation action |
+|:---:|---|---|
+| ☝️ **ONE** | `PREVIOUS` | Move to the previous slide |
+| ✌️ **TWO** | `NEXT` | Move to the next slide |
+| 🤟 **THREE** | `START / EXIT` | Start or exit the slideshow |
 
-The prototype is particularly suitable for controlled presentation environments where the camera can clearly observe the user's hand.
+<p align="center">
+  <strong>☝️ PREVIOUS</strong>
+  &nbsp; ← &nbsp;
+  <strong>✌️ NEXT</strong>
+  &nbsp; → &nbsp;
+  <strong>🤟 START / EXIT</strong>
+</p>
 
----
-
-## 4. System Architecture
-
-The complete implemented processing pipeline is:
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
-**Webcam**
-
-↓
-
-**OpenCV 5 Video Processing**
-
-↓
-
-**MediaPipe Hand Landmarker**
-
-↓
-
-**21 Hand Landmarks**
-
-↓
-
-**Feature Extraction**
-
-↓
-
-**Gesture Recognition**
-
-↓
-
-**Confidence / Margin Estimation**
-
-↓
-
-**Temporal Stability & Safety Engine**
-
-↓
-
-**Intent Engine**
-
-↓
-
-**PowerPoint Automation**
-
-↓
-
-**Session Analytics & Evaluation**
-
-↓
-
-**AWS DynamoDB**
-
-<<<<<<< HEAD
-=======
-### Major Components
-
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-### 4.1 Webcam Input
-
-The webcam provides continuous video frames to the real-time vision pipeline.
-
-### 4.2 OpenCV 5
-
-OpenCV 5 performs the substantive image/video processing stage, including:
-
-* Webcam capture
-* Frame processing
-* Image conversion
-<<<<<<< HEAD
-* Real-time visualization
-* FPS measurement
-* Dashboard rendering
-
-The validated environment uses:
-
-**OpenCV 5.0.0**
-
-### 4.3 MediaPipe Hand Landmarker
-
-MediaPipe Hand Landmarker detects the user's hand and extracts 21 hand landmarks.
-
-Each landmark contains X, Y, and Z coordinates:
-=======
-* Real-time display
-* FPS measurement
-* Visualization and dashboard rendering
-
-The project was verified using:
-
-**OpenCV version: 5.0.0**
-
-### 4.3 MediaPipe Hand Landmarker
-
-MediaPipe detects the user's hand and extracts 21 anatomical landmarks.
-
-Each landmark contains X, Y, and Z coordinates, producing:
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
-**21 × 3 = 63 raw landmark features**
-
-### 4.4 Feature Extraction
-
-The system uses raw landmark coordinates together with engineered geometric and direction-related features.
-
-<<<<<<< HEAD
-Multiple feature representations were investigated during development, including:
-
-* Raw landmark features
-* Relative positions
-* Geometric features
-=======
-The project went through multiple feature and recognition experiments, including:
-
-* Raw landmark features
-* Geometric features
-* Relative positions
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-* Direction features
-* Orientation normalization
-* Finger-state analysis
-* Personalized prototypes
-
-### 4.5 Gesture Recognition
-
-<<<<<<< HEAD
-Multiple recognition approaches were evaluated during development:
-=======
-Multiple machine-learning approaches were evaluated during development:
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
-* Support Vector Machine
-* Random Forest
-* Extra Trees
-* Prototype-based recognition
-* Hierarchical recognition
-* Personalized/live-domain calibration
-
-<<<<<<< HEAD
-The final real-time controller uses **live-domain gesture prototypes and direction-related features**, combined with safety and temporal decision logic.
-=======
-The final real-time controller uses live-domain gesture prototypes and direction-related features.
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
-### 4.6 Safety Engine
-
-Because an incorrect gesture could cause an unintended presentation action, the system uses multiple layers of command protection.
-
-Implemented mechanisms include:
-
-* Temporal stability filtering
-<<<<<<< HEAD
-* Prediction-margin filtering
-=======
-* Margin filtering
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-* Neutral-state unlocking
-* Re-arm requirement
-* Fresh-gesture requirement
-* Cooldown protection
-* THREE edge-trigger protection
-* Release detection
-* Presentation boundary protection
-* False-trigger prevention
-
-<<<<<<< HEAD
-The system therefore does not execute a presentation action from a single unstable frame.
-=======
-The system therefore does not immediately execute an action from a single unstable frame.
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
+> **Interaction principle:** A detected hand pose is not automatically a command. The safety engine validates the gesture before presentation automation is allowed.
 
 ---
 
-## 5. Intent Engine
+## 🎨 Inside the System
 
-The recognized gesture is converted into an application-level intent.
+### 01 — Main System Architecture
 
-| Recognized Gesture | Intent     | PowerPoint Action       |
-| ------------------ | ---------- | ----------------------- |
-| ONE                | PREVIOUS   | Move to previous slide  |
-| TWO                | NEXT       | Move to next slide      |
-| THREE              | START/EXIT | Start or exit slideshow |
+<p align="center">
+  <img src="docs/images/Main%20System%20Architecture.jpg" alt="Main system architecture showing the major project components" width="100%">
+</p>
 
-<<<<<<< HEAD
-PowerPoint automation was directly tested using **Microsoft PowerPoint COM automation**.
+### 02 — Gesture Recognition & Safety Workflow
 
-Previous, next, start, and exit operations were successfully verified.
+<p align="center">
+  <img src="docs/images/Gesture%20Recognition%20%26%20Safety%20Workflow.jpg" alt="Gesture recognition and safety validation workflow" width="100%">
+</p>
 
-The controller also rejects commands when the slideshow is not running or when presentation boundaries prevent the requested action.
+### 03 — AWS Cloud Architecture
 
-=======
-PowerPoint automation was directly tested using Microsoft PowerPoint COM automation.
+<p align="center">
+  <img src="docs/images/AWS%20Cloud%20Architecture.jpg" alt="AWS cloud architecture for session analytics" width="100%">
+</p>
 
-Previous, next, start, and exit operations were successfully verified.
+### 04 — Evaluation Results Dashboard
 
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
----
-
-## 6. Real-Time Performance
-
-<<<<<<< HEAD
-A live-domain real-time test processed:
-=======
-A real-time domain test processed:
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
-* Frames: **2,079**
-* Hand frames: **1,739**
-* Hand visibility: **83.65%**
-* Average FPS: **25.86**
-
-<<<<<<< HEAD
-This demonstrates real-time operation of the vision pipeline on the development system.
-
-A separate controlled safety/presentation test achieved:
-
-* Hand visibility: **91.73%**
-* Average FPS: **29.58**
-
-Performance can vary depending on camera conditions, hand visibility, lighting, and system load.
-=======
-This demonstrates that the vision pipeline operates at real-time frame rates on the development system.
-
-A separate controlled safety/presentation test achieved approximately **29.58 FPS** with **91.73% hand visibility**.
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
+<p align="center">
+  <img src="docs/images/Evaluation%20Results%20Dashboard.jpg" alt="Evaluation results dashboard" width="100%">
+</p>
 
 ---
 
-## 7. Recognition Evaluation
-
-The strongest controlled live-calibration evaluation produced:
-
-| Gesture     |   Correct |   Accuracy |
-| ----------- | --------: | ---------: |
-| ONE         |     10/10 |    100.00% |
-| TWO         |     10/10 |    100.00% |
-| THREE       |     11/13 |     84.62% |
-| **Overall** | **31/33** | **93.94%** |
-
-<<<<<<< HEAD
-### Important Qualification
-=======
-### Important qualification
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
-The **93.94% result is a controlled real-time recognition measurement using live calibration/prototypes**.
-
-It is **not an unseen-user or universal accuracy claim**.
-
-<<<<<<< HEAD
-This distinction is important because the experiments demonstrated measurable differences between calibration data and live operating data.
-
-The result should therefore be interpreted as evidence of the prototype's recognition capability under controlled calibrated conditions.
-=======
-The distinction is important because the experiments demonstrated measurable domain differences between calibration data and live operating data.
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
----
-
-## 8. Domain-Shift Analysis
-
-<<<<<<< HEAD
-The project explicitly investigated differences between calibration data and live operating data.
-
-Observed results:
-=======
-The project explicitly investigated the difference between calibration and live data.
-
-Results:
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
-* Average feature shift: **1.2486 SD**
-* Features exceeding 2 SD: **8/45**
-* Features exceeding 3 SD: **2/45**
-* Diagnosis: **Moderate domain shift**
-
-The TWO gesture exhibited the largest class-specific feature shift.
-
-<<<<<<< HEAD
-This analysis demonstrates that recognition performance can change when operating conditions differ from those used during calibration.
-=======
-This analysis demonstrates that the system's recognition performance can change when the operating conditions differ from the conditions used for calibration.
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
----
-
-## 9. Domain Adaptation
-
-<<<<<<< HEAD
-Live-domain adaptation was evaluated to determine whether adapting gesture prototypes to the current operating environment improves recognition.
-=======
-Live-domain adaptation was evaluated to determine whether adapting prototypes to the current operating environment improves recognition.
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
-| Method                         | Accuracy |
-| ------------------------------ | -------: |
-| Original calibration centroids |   34.00% |
-| 50/50 adapted centroids        |   49.33% |
-| Pure live centroids            |   82.00% |
-
-The 50/50 adaptation produced an improvement of:
-
-**+15.33 percentage points**
-
-<<<<<<< HEAD
-These results support the use of live/personal calibration while also demonstrating that generalized recognition remains a limitation.
-
-The pure live-centroid result represents **within-session performance** and is not treated as unseen-user generalization.
-=======
-This supports the use of live/personal calibration while also demonstrating that generalized recognition remains a limitation.
-
-The pure live-centroid result represents within-session performance and is not treated as unseen-user generalization.
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
----
-
-## 10. AWS Cloud Component
-
-AWS is used as a meaningful cloud component for session analytics.
-
-### AWS Service
-
-**Amazon DynamoDB**
-
-### Table
-
-**GestureSessionAnalytics**
-
-### Region
-
-**ap-southeast-2**
-
-### Stored Information
-
-Example session analytics include:
-
-* Session ID
-* Timestamp
-* OpenCV version
-* FPS
-* Hand visibility
-* Controlled live accuracy
-* Successful commands
-* Blocked/failed commands
-* Safety status
-* AWS connection status
-
-<<<<<<< HEAD
-A real project evaluation record was successfully written to and verified from DynamoDB.
-
-AWS credentials are maintained outside the source repository and are not stored in project files.
-=======
-The project successfully verified a real evaluation record in DynamoDB.
-
-No AWS credentials are stored in the source repository.
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
----
-
-## 11. Safety and False-Trigger Prevention
-
-Presentation automation requires more than gesture classification because an incorrect prediction can cause an unwanted action.
-
-The safety architecture therefore uses a state-based command engine.
-
-<<<<<<< HEAD
-A command must satisfy appropriate recognition and safety conditions before execution.
-=======
-A command must satisfy appropriate stability and safety conditions before execution.
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
-Implemented protections include:
-
-1. Stable prediction over multiple frames
-2. Minimum prediction margin
-3. Neutral-state requirement
-4. Re-arm requirement
-5. Fresh gesture requirement
-6. Cooldown period
-7. THREE release requirement
-8. Presentation boundary checking
-
-The THREE gesture is edge-triggered so that continuously holding the gesture does not repeatedly execute the Start/Exit command.
-
-During live PowerPoint testing, actions were also safely rejected when the slideshow was no longer running.
-
----
-
-## 12. Robustness and Failure Cases
-
-The project deliberately documents failure cases rather than reporting only successful experiments.
-
-Observed limitations include:
-
-* Calibration-to-live domain shift
-* Stronger distribution shift for the TWO gesture
-* Dependence on live/personal calibration
-* Sensitivity to hand position and orientation
-* Sensitivity to lighting and background conditions
-* Reduced recognition coverage when safety thresholds are overly conservative
-* Limited evidence for unseen-user generalization
-
-<<<<<<< HEAD
-Mitigation strategies include:
-=======
-These limitations are mitigated through:
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
-* Live calibration
-* Temporal stability
-* Margin filtering
-<<<<<<< HEAD
-* Neutral-state unlocking
-* Re-arm logic
-* Fresh-gesture requirements
-* THREE edge-trigger protection
-=======
-* Neutral unlocking
-* Re-arm logic
-* Edge-trigger protection
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-* Domain analysis
-* Explicit rejection of uncertain commands
-
----
-
-## 13. User Interface
-
-The system includes a real-time OpenCV dashboard displaying system state and performance information.
-
-The dashboard provides information such as:
-
-* Current gesture
-* Stable gesture
-* Prediction margin
-* Slideshow state
-* Safety state
-* Re-arm status
-* THREE trigger status
-* FPS
-* Hand visibility
-* Command count
-* PowerPoint status
-* AWS verification status
-
-<<<<<<< HEAD
-This allows both the operator and evaluator to observe important internal system states during a demonstration.
-=======
-This allows the operator and evaluator to observe the internal state of the system during a demonstration.
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
----
-
-## 14. Evaluation Evidence
-
-<<<<<<< HEAD
-The project maintains evaluation artifacts covering:
-=======
-The project maintains separate evaluation artifacts covering:
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
-* Gesture accuracy
-* System performance
-* Safety
-* Domain shift
-* Domain adaptation
-* Real-time operation
-* PowerPoint integration
-* Failure cases
-<<<<<<< HEAD
-* Robustness analysis
-
-The final evaluation package identifies the project as a:
-
-**FUNCTIONAL COMPETITION-READY PROTOTYPE**
-
-The remaining focus is primarily broader validation and final competition submission packaging.
-=======
-
-The final evaluation package reports the prototype as a:
-
-**FUNCTIONAL COMPETITION-READY PROTOTYPE**
-
-with the remaining work focused primarily on broader validation and submission packaging.
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
----
-
-## 15. Reproducibility
-
-<<<<<<< HEAD
-The project uses Python and maintains pinned dependency information through `requirements.txt`.
-
-Validated core environment:
-
-| Dependency   | Version |
-| ------------ | ------- |
-| Python       | 3.14.7  |
-| OpenCV       | 5.0.0   |
-| MediaPipe    | 1.0.1   |
-| NumPy        | 2.5.2   |
-| Pandas       | 3.0.5   |
-| Scikit-learn | 1.9.0   |
-| PyAutoGUI    | 0.9.39  |
-| PyWin32      | 312     |
-| Boto3        | 1.43.89 |
-
-Install dependencies with:
-
-```powershell
-pip install -r requirements.txt
+## ⚙️ System Architecture
+
+```mermaid
+flowchart TD
+    A["📷 Webcam Input"] --> B["🎞️ OpenCV 5 Processing"]
+    B --> C["🖐️ MediaPipe Hand Landmarker"]
+    C --> D["📍 21 Landmarks"]
+    D --> E["🧮 63-Dimensional Features"]
+    E --> F["🧠 Personalized ML Recognition"]
+    F --> G{"🛡️ Safety Validation"}
+    G -->|Rejected| H["🚫 Block Command"]
+    G -->|Accepted| I["🎮 PowerPoint Automation"]
+    I --> J["📊 Session Evaluation"]
+    J --> K[("☁️ AWS DynamoDB")]
+
+    style A fill:#173B67,color:#FFFFFF,stroke:#60A5FA
+    style B fill:#392B77,color:#FFFFFF,stroke:#A78BFA
+    style F fill:#075E54,color:#FFFFFF,stroke:#34D399
+    style G fill:#78350F,color:#FFFFFF,stroke:#FBBF24
+    style I fill:#134E4A,color:#FFFFFF,stroke:#5EEAD4
+    style K fill:#7C2D12,color:#FFFFFF,stroke:#FDBA74
 ```
 
-The repository contains the implementation, evaluation scripts, reports, and documentation required to reproduce the major evaluation stages.
+### 🔬 The processing pipeline
 
-Generated datasets, trained model files, and the MediaPipe model asset are excluded from Git where appropriate and must be supplied/generated locally according to the project instructions.
-=======
-The project uses Python and maintains dependency information through `requirements.txt`.
-
-Core dependencies include:
-
-* Python
-* OpenCV 5
-* MediaPipe
-* NumPy
-* Pandas
-* Scikit-learn
-* PyAutoGUI
-* PyWin32
-* Boto3
-
-The repository contains the implementation, evaluation scripts, reports, and project documentation required to reproduce the major evaluation stages.
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-
-AWS credentials are intentionally excluded from the repository.
+1. **Capture:** Read frames from the webcam.
+2. **Detect:** Identify the hand and extract its 21 landmarks.
+3. **Represent:** Convert landmark coordinates into 63 numerical features.
+4. **Recognize:** Classify the gesture using the personalized recognition pipeline.
+5. **Validate:** Apply confidence, temporal stability, neutral-unlock, re-arm, edge-trigger, and cooldown rules.
+6. **Execute:** Issue an accepted presentation command through PowerPoint automation.
+7. **Evaluate:** Measure system behavior and record applicable session analytics.
 
 ---
 
-## 16. Responsible Use
+## 🛡️ Safety Engineering
 
-The system is designed as a presentation-assistance interface and should not be used for safety-critical control.
+A reliable gesture interface must prevent unintended actions, not merely recognize hand poses.
 
-<<<<<<< HEAD
-Recognition uncertainty can occur because of:
-=======
-Recognition uncertainty can occur due to:
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
+| Safety mechanism | Purpose |
+|---|---|
+| Confidence and margin filters | Reject uncertain predictions |
+| Temporal stability | Require consistent recognition |
+| Neutral unlock | Require a neutral state before another command cycle |
+| Re-arm logic | Prevent repeated firing from a held gesture |
+| THREE edge trigger | Prevent continuous start/exit activation |
+| Cooldown | Limit commands occurring too close together |
+| Boundary protection | Prevent invalid previous/next slide actions |
+| False-trigger prevention | Block commands that do not pass validation |
 
-* Occlusion
-* Poor lighting
-* Background interference
-* Hand orientation
-* Distance from camera
-* User-specific gesture variation
-
-The safety engine therefore favors rejection over blindly executing uncertain commands.
-
-Performance claims are reported with their experimental conditions to avoid overstating generalization.
+Rejected commands are an intentional part of the safety design. A blocked command is not automatically a system failure; it must be interpreted in the context of the safety rules and application state.
 
 ---
 
-## 17. Current Limitations
+## 📊 Evaluation Highlights
 
-<<<<<<< HEAD
-The most important remaining technical limitation is **generalized multi-user robustness**.
+The project includes controlled live-calibration tests, real-time performance measurements, domain-shift analysis, adaptation experiments, safety checks, and PowerPoint integration tests.
 
-The current **93.94%** result should be interpreted as controlled live-calibration performance.
-=======
-The most important remaining technical limitation is generalized multi-user robustness.
+### Recognition results
 
-The current 93.94% result should be interpreted as controlled live-calibration performance.
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
+| Gesture | Correct recognitions | Result |
+|---|---:|---:|
+| ONE | 10 / 10 | 100% |
+| TWO | 10 / 10 | 100% |
+| THREE | 11 / 13 | 84.62% |
+| **Overall** | **31 / 33** | **93.94%** |
 
-Further validation should include:
+> **Evaluation qualification:** The 93.94% result is from a controlled live-calibration evaluation. It is not a claim of universal accuracy or performance on unseen users and environments.
 
-* Multiple users
-* Different hand sizes
-* Different camera positions
-* Different backgrounds
-* Different lighting conditions
-* Different distances
-* Longer presentation sessions
+### Runtime and robustness
 
-This testing is intended to determine how well the system generalizes beyond its calibrated operating conditions.
+| Metric | Observed result |
+|---|---:|
+| Frames processed in the recorded integration run | 4,593 |
+| Frames with a detected hand | 2,228 |
+| Hand visibility across processed frames | 48.51% |
+| Average processing rate | 26.36 FPS |
+| Successful commands recorded | 23 |
+| Blocked or failed command attempts | 18 |
 
----
+The recorded run included command attempts after the slideshow had exited; those actions were safely rejected. Successful commands and blocked attempts should therefore be interpreted separately.
 
-<<<<<<< HEAD
-## 18. Competition Readiness
+### Domain adaptation experiment
 
-The current prototype has demonstrated:
+| Configuration | Observed recognition result |
+|---|---:|
+| Original centroids | 34% |
+| Mixed 50/50 adaptation | 49.33% |
+| Pure live adaptation | 82% |
 
-* OpenCV 5 real-time vision processing
-* MediaPipe 21-point hand landmark extraction
-* Machine-learning-based gesture recognition experiments
-* Live-domain personalization
-* Temporal and safety-based command validation
-* Real-time PowerPoint automation
-* Presentation boundary protection
-* AWS DynamoDB session analytics
-* Quantitative evaluation
-* Domain-shift analysis
-* Failure-case documentation
-* Reproducibility through pinned dependencies
+Pure live adaptation improved the measured result by **15.33 percentage points** compared with mixed adaptation in this experiment. These are experiment-specific results, not a guarantee of performance across users or sessions.
 
-The project is structured as a competition-ready prototype, with final submission work focused on:
+### Validation coverage
 
-1. Repository cleanup
-2. Final documentation
-3. Demo video
-4. Reproducibility verification
-5. Submission packaging
-6. Additional robustness validation where feasible
+- ✅ PowerPoint previous-slide, next-slide, start, and exit integration checks
+- ✅ Confidence and temporal stability checks
+- ✅ Neutral unlock, re-arm, edge-trigger, and cooldown checks
+- ✅ Boundary protection and false-trigger prevention checks
+- ✅ Robustness and domain-shift evaluation
+- ✅ AWS DynamoDB evaluation-record verification
+
+Detailed evidence is maintained in the `evaluation/` directory, including the final evaluation script, result summaries, CSV metrics, and robustness report.
 
 ---
 
-## 19. Conclusion
-=======
-## 18. Conclusion
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
+## ☁️ AWS Integration
 
-The project demonstrates a functional real-time computer-vision system for contactless presentation control.
+**AWS DynamoDB** provides cloud-based session analytics storage.
 
-The implementation combines:
+| Setting | Configuration |
+|---|---|
+| AWS service | Amazon DynamoDB |
+| Table | `GestureSessionAnalytics` |
+| Region | `ap-southeast-2` |
+| Capacity mode | On-demand |
 
-**OpenCV 5 + MediaPipe + Machine Learning + Live Calibration + Safety Engineering + PowerPoint Automation + AWS DynamoDB**
+A real evaluation record was written to and verified from DynamoDB. AWS credentials are maintained outside the source repository and must not be committed.
 
-The system has demonstrated:
+The cloud component supports evaluation and session analytics; it is not required to claim that the core gesture-recognition pipeline itself runs in the cloud.
 
-* Real-time OpenCV 5 processing
-* 21-point hand landmark extraction
-<<<<<<< HEAD
-* 63 raw landmark features
-=======
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
-* Personalized gesture recognition
-* Controlled live recognition of **93.94%**
-* Real-time operation at approximately **25.86 FPS** in a live-domain test
-* PowerPoint previous/next/start/exit automation
-* Multiple false-trigger prevention mechanisms
-* Domain-shift analysis
-* Live-domain adaptation
-* AWS DynamoDB session analytics
-* Explicit failure-case and limitation analysis
+---
 
-The project is therefore technically functional and suitable for competition demonstration, while broader multi-user and cross-environment testing remains necessary before making generalized accuracy claims.
+## 🧰 Technology Stack
 
-<<<<<<< HEAD
-**Overall Status: FUNCTIONAL COMPETITION-READY PROTOTYPE**
-=======
-**Overall Status: FUNCTIONAL COMPETITION-READY PROTOTYPE**
->>>>>>> 5f0a92e (Finalize OpenCV 5 competition prototype and evaluation)
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/OpenCV%205-5C3EE8?style=flat-square&logo=opencv&logoColor=white" alt="OpenCV">
+  <img src="https://img.shields.io/badge/MediaPipe-00A98F?style=flat-square" alt="MediaPipe">
+  <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" alt="scikit-learn">
+  <img src="https://img.shields.io/badge/AWS%20DynamoDB-FF9900?style=flat-square&logo=amazondynamodb&logoColor=white" alt="DynamoDB">
+  <img src="https://img.shields.io/badge/PowerPoint-C43E1C?style=flat-square&logo=microsoftpowerpoint&logoColor=white" alt="PowerPoint">
+</p>
+
+- **Language:** Python
+- **Computer vision:** OpenCV 5.0.0
+- **Hand tracking:** MediaPipe Hand Landmarker
+- **Machine learning:** scikit-learn and personalized gesture recognition
+- **Desktop integration:** Microsoft PowerPoint COM automation through `pywin32`
+- **Cloud analytics:** Amazon DynamoDB using `boto3`
+- **Evaluation:** Python test scripts, CSV reports, and robustness analysis
+
+Pinned dependency versions are provided in `requirements.txt`.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Windows with a working webcam
+- Python compatible with the pinned dependencies
+- Microsoft PowerPoint desktop installed for COM-based presentation automation
+- AWS credentials configured outside the repository if cloud analytics are to be exercised
+- The required MediaPipe hand-landmarker model and other project assets
+
+### 1. Clone the repository
+
+```powershell
+git clone https://github.com/snehassneha4578-collab/AI-Hand-Gesture-Presentation-Automation.git
+Set-Location AI-Hand-Gesture-Presentation-Automation
+```
+
+### 2. Install dependencies
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
+### 3. Configure required assets
+
+Verify that the hand-landmarker model and any required local configuration are available. Configure AWS credentials securely through the supported AWS credential mechanism if running cloud analytics.
+
+### 4. Run and evaluate
+
+Use the project's primary controller/UI entry point for the live application. To run the packaged evaluation suite, use:
+
+```powershell
+python evaluation/final_evaluation.py
+```
+
+Check the evaluation outputs and application logs for the observed results. The evaluation script is distinct from the live presentation controller.
+
+> **Compatibility note:** The dependency file pins specific versions. Use an environment compatible with those versions, and follow the project's model-asset and Windows PowerPoint requirements.
+
+---
+
+## 📁 Project Documentation
+
+```text
+AI-Hand-Gesture-Presentation-Automation/
+├── docs/
+│   └── images/
+│       ├── Main System Architecture.jpg
+│       ├── Gesture Recognition & Safety Workflow.jpg
+│       ├── AWS Cloud Architecture.jpg
+│       └── Evaluation Results Dashboard.jpg
+├── evaluation/
+│   ├── final_evaluation.py
+│   ├── FINAL_EVALUATION_RESULTS.txt
+│   ├── gesture_accuracy_results.csv
+│   ├── system_performance.csv
+│   ├── safety_results.csv
+│   ├── robustness_results.csv
+│   └── ROBUSTNESS_EVALUATION_REPORT.txt
+├── requirements.txt
+└── README.md
+```
+
+*This is a documentation-oriented overview of key files; the repository contains additional implementation modules, local configuration, and test assets.*
+
+---
+
+## ⚠️ Limitations & Responsible Use
+
+- Recognition performance can vary with camera placement, lighting, hand position, and user-specific movement.
+- The headline accuracy comes from controlled live calibration and must not be interpreted as an unseen-user benchmark.
+- Live adaptation results are experiment-specific and may not generalize across sessions.
+- Hand visibility is not guaranteed in every webcam frame.
+- PowerPoint automation depends on application state; invalid commands should be rejected rather than forced.
+- AWS analytics require valid configuration and permissions.
+- Webcam use should be transparent and consent-based. Avoid storing or sharing unnecessary personal imagery.
+
+---
+
+## 🔮 Future Enhancements
+
+- 🎞️ An embedded animated gesture demonstration
+- 📈 Expanded evaluation across unseen users and recording conditions
+- 🧪 Repeatable cross-session and cross-environment robustness tests
+- 📊 Richer visual analytics for recognition, latency, and rejected commands
+- ♿ Improved accessibility and calibration feedback
+
+---
+
+## 🏁 Project Status
+
+**Implementation complete — evaluation evidence available.**
+
+The system integrates OpenCV 5 video processing, hand-landmark extraction, personalized recognition, safety-gated presentation control, PowerPoint automation, and AWS DynamoDB session analytics.
+
+Competition submission tasks such as final packaging, the short demonstration video, and the submission form are separate from implementation completion.
+
+---
+
+<p align="center">
+  <strong>🖐️ See the gesture. 🧠 Validate the intent. 🎬 Control the presentation.</strong>
+  <br>
+  <sub>Built with computer vision, machine learning, safety engineering, and cloud analytics.</sub>
+</p>

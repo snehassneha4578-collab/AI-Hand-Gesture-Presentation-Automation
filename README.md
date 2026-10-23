@@ -147,50 +147,19 @@ These are **documented interface-state concepts**, not screenshots of the runnin
 
 ## 🧪 Gesture Samples: 2, 3, 4, and 5 Fingers
 
-The sample gallery below distinguishes supported commands from poses that must not be assumed to have a configured action.
+The gallery below shows gesture samples and distinguishes configured commands from poses that must not trigger an action.
 
-<table>
-  <tr>
-    <td width="50%" align="center">
+| Two fingers — Sample 2 | Three fingers — Sample 3 |
+|---|---|
+| ![Two-finger gesture sample](docs/images/gesture-sample-2.jpg) | ![Three-finger gesture sample](docs/images/gesture-sample-3.jpg) |
+| **Configured class:** TWO | **Configured class:** THREE |
+| **Intended action:** Next slide | **Intended action:** Start/exit slideshow |
 
-**Sample 2 — Two fingers**
-
-<img src="docs/images/gesture-sample-2.png" alt="Placeholder for a real two-finger gesture sample with hand landmarks" width="100%"/>
-
-**Configured class:** TWO  
-**Intended action:** Next slide
-
-    </td>
-    <td width="50%" align="center">
-
-**Sample 3 — Three fingers**
-
-<img src="docs/images/gesture-sample-3.png" alt="Placeholder for a real three-finger gesture sample with hand landmarks" width="100%"/>
-
-**Configured class:** THREE  
-**Intended action:** Start/exit slideshow
-
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-
-**Sample 4 — Four fingers**
-
-<img src="docs/images/gesture-sample-4.png" alt="Placeholder for a real four-finger hand pose" width="100%"/>
-
-**Status:** Not a configured command  
-The system should not assign an action without an explicit mapping.
-
-    </td>
-    <td width="50%" align="center">
-
-**Sample 5 — Five fingers**
-
-<img src="docs/images/gesture-sample-5.png" alt="Placeholder for a real five-finger open-palm pose" width="100%"/>
-
-**Status:** Not a configured command  
-An open palm must not be assumed to trigger a presentation action.
+| Four fingers — Sample 4 | Five fingers — Sample 5 |
+|---|---|
+| ![Four-finger gesture sample](docs/images/gesture-sample-4.jpg) | ![Five-finger open-palm gesture sample](docs/images/gesture-sample-5.jpg) |
+| **Status:** Not a configured command | **Status:** Not a configured command |
+| No action should be assigned without an explicit mapping. | An open palm must not be assumed to trigger a presentation action. |
 
     </td>
   </tr>

@@ -146,11 +146,11 @@ These are **documented interface-state concepts**, not screenshots of the runnin
 ---
 ## 🧪 Gesture Samples: 2, 3, 4, and 5 Fingers
 
-These samples demonstrate the hand gestures recognized by the system. Only explicitly configured gestures trigger presentation actions.
+These samples demonstrate the gestures recognized by the system. Only explicitly configured gestures trigger presentation actions.
 
 ### ✌️ Two Fingers — Next Slide
 
-![Two-finger gesture sample](https://github.com/snehassv4578-collab/AI-Hand-Gesture-Presentation-Automation/raw/fix/github-readme-images/docs/images/gesture-sample-2.jpg)
+![Two-finger gesture sample](docs/images/gesture-sample-2.jpg)
 
 - **Gesture class:** `TWO`
 - **Action:** Move to the next slide.
@@ -158,7 +158,7 @@ These samples demonstrate the hand gestures recognized by the system. Only expli
 
 ### 🤟 Three Fingers — Start/Exit Slideshow
 
-![Three-finger gesture sample](https://github.com/snehassv4578-collab/AI-Hand-Gesture-Presentation-Automation/raw/fix/github-readme-images/docs/images/gesture-sample-3.jpg)
+![Three-finger gesture sample](docs/images/gesture-sample-3.jpg)
 
 - **Gesture class:** `THREE`
 - **Action:** Start or exit the slideshow.
@@ -166,14 +166,14 @@ These samples demonstrate the hand gestures recognized by the system. Only expli
 
 ### 🖖 Four Fingers — No Action
 
-![Four-finger gesture sample](https://github.com/snehassv4578-collab/AI-Hand-Gesture-Presentation-Automation/raw/fix/github-readme-images/docs/images/gesture-sample-4.jpg)
+![Four-finger gesture sample](docs/images/gesture-sample-4.jpg)
 
 - **Status:** Not a configured command.
 - **Expected behavior:** No presentation action is triggered.
 
 ### 🖐️ Five Fingers — Open Palm
 
-![Five-finger open-palm gesture sample](https://github.com/snehassv4578-collab/AI-Hand-Gesture-Presentation-Automation/raw/fix/github-readme-images/docs/images/gesture-sample-5.jpg)
+![Five-finger open-palm gesture sample](docs/images/gesture-sample-5.jpg)
 
 - **Status:** Not a configured command.
 - **Expected behavior:** An open palm must not trigger an action without an explicit mapping.

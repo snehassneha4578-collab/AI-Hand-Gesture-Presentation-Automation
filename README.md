@@ -162,20 +162,6 @@ The gallery below shows gesture samples and distinguishes configured commands fr
 | No action should be assigned without an explicit mapping. | An open palm must not be assumed to trigger a presentation action. |
 
 
-The gallery below shows gesture samples and distinguishes configured commands from poses that must not trigger an action.
-
-| **Two fingers — Sample 2** | **Three fingers — Sample 3** |
-|---|---|
-| <img src="docs/images/gesture-sample-2.jpg" alt="Two-finger gesture sample" width="280"/> | <img src="docs/images/gesture-sample-3.jpg" alt="Three-finger gesture sample" width="280"/> |
-| **Configured class:** TWO | **Configured class:** THREE |
-| **Intended action:** Next slide | **Intended action:** Start/exit slideshow |
-
-| **Four fingers — Sample 4** | **Five fingers — Sample 5** |
-|---|---|
-| <img src="docs/images/gesture-sample-4.jpg" alt="Four-finger gesture sample" width="280"/> | <img src="docs/images/gesture-sample-5.jpg" alt="Five-finger open-palm gesture sample" width="280"/> |
-| **Status:** Not a configured command | **Status:** Not a configured command |
-| No action should be assigned without an explicit mapping. | An open palm must not be assumed to trigger a presentation action. |
-
 ## 🛡️ Safety by Design
 
 Gesture recognition alone is not sufficient for reliable presentation control. A prediction should not automatically become a command.

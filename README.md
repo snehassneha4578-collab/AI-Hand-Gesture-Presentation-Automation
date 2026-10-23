@@ -160,7 +160,7 @@ The gallery below shows gesture samples and distinguishes configured commands fr
 | <img src="docs/images/gesture-sample-4.jpg" alt="Four-finger gesture sample" width="280"/> | <img src="docs/images/gesture-sample-5.jpg" alt="Five-finger open-palm gesture sample" width="280"/> |
 | **Status:** Not a configured command | **Status:** Not a configured command |
 | No action should be assigned without an explicit mapping. | An open palm must not be assumed to trigger a presentation action. |
-## 🧪 Gesture Samples: 2, 3, 4, and 5 Fingers
+
 
 The gallery below shows gesture samples and distinguishes configured commands from poses that must not trigger an action.
 

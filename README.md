@@ -155,7 +155,7 @@ The sample gallery below distinguishes supported commands from poses that must n
 
 **Sample 2 — Two fingers**
 
-<img src="docs/images/gesture-sample-2.jpg" alt="Placeholder for a real two-finger gesture sample with hand landmarks" width="100%"/>
+<img src="docs/images/gesture-sample-2.jpg" alt="Two-finger gesture sample showing hand landmarks" width="100%"/>
 
 **Configured class:** TWO  
 **Intended action:** Next slide
@@ -165,7 +165,7 @@ The sample gallery below distinguishes supported commands from poses that must n
 
 **Sample 3 — Three fingers**
 
-<img src="docs/images/gesture-sample-3.jpg" alt="Placeholder for a real three-finger gesture sample with hand landmarks" width="100%"/>
+<img src="docs/images/gesture-sample-3.jpg" alt="Three-finger gesture sample showing hand landmarks" width="100%"/>
 
 **Configured class:** THREE  
 **Intended action:** Start/exit slideshow
@@ -177,7 +177,7 @@ The sample gallery below distinguishes supported commands from poses that must n
 
 **Sample 4 — Four fingers**
 
-<img src="docs/images/gesture-sample-4.jpg" alt="Placeholder for a real four-finger hand pose" width="100%"/>
+<img src="docs/images/gesture-sample-4.jpg" alt="Four-finger hand pose sample" width="100%"/>
 
 **Status:** Not a configured command  
 The system should not assign an action without an explicit mapping.
@@ -187,7 +187,7 @@ The system should not assign an action without an explicit mapping.
 
 **Sample 5 — Five fingers**
 
-<img src="docs/images/gesture-sample-5.jpg" alt="Placeholder for a real five-finger open-palm pose" width="100%"/>
+<img src="docs/images/gesture-sample-5.jpg" alt="Five-finger open-palm gesture sample" width="100%"/>
 
 **Status:** Not a configured command  
 An open palm must not be assumed to trigger a presentation action.

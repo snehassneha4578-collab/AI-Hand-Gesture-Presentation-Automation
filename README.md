@@ -105,19 +105,60 @@ These are documented interface-state concepts, not screenshots of the running ca
 
 ## 🧪 Gesture Samples: 2, 3, 4, and 5 Fingers
 
-The gallery below shows the available gesture samples and distinguishes configured commands from poses that must not trigger an action.
+These samples illustrate the finger-count poses and distinguish configured commands from gestures that should not trigger an action.
 
-| ✌️ Sample 2 — Two fingers | 🤟 Sample 3 — Three fingers |
-|---|---|
-| ![Two-finger gesture sample](docs/images/gesture-sample-2.jpg) | ![Three-finger gesture sample](docs/images/gesture-sample-3.jpg) |
-| **Configured class:** TWO | **Configured class:** THREE |
-| **Intended action:** Next slide | **Intended action:** Start/exit slideshow |
+<table>
+<tr>
+<td align="center" width="50%">
 
-| 🖐️ Sample 4 — Four fingers | ✋ Sample 5 — Five fingers |
-|---|---|
-| ![Four-finger gesture sample](docs/images/gesture-sample-4.jpg) | ![Five-finger open-palm gesture sample](docs/images/gesture-sample-5.jpg) |
-| **Status:** Not a configured command | **Status:** Not a configured command |
-| No action should be assigned without an explicit mapping. | An open palm must not be assumed to trigger a presentation action. |
+### ✌️ Sample 2 — Two Fingers
+
+<img src="https://github.com/snehassneha4578-collab/AI-Hand-Gesture-Presentation-Automation/raw/main/docs/images/gesture-sample-2.jpg" alt="Two-finger gesture sample" width="260">
+
+**Configured class:** `TWO`
+
+**Intended action:** Next slide
+
+</td>
+<td align="center" width="50%">
+
+### 🤟 Sample 3 — Three Fingers
+
+<img src="https://github.com/snehassneha4578-collab/AI-Hand-Gesture-Presentation-Automation/raw/main/docs/images/gesture-sample-3.jpg" alt="Three-finger gesture sample" width="260">
+
+**Configured class:** `THREE`
+
+**Intended action:** Start/exit slideshow
+
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+
+### 🖐️ Sample 4 — Four Fingers
+
+<img src="https://github.com/snehassneha4578-collab/AI-Hand-Gesture-Presentation-Automation/raw/main/docs/images/gesture-sample-4.jpg" alt="Four-finger gesture sample" width="260">
+
+**Status:** Not a configured command
+
+No action should be assigned without an explicit mapping.
+
+</td>
+<td align="center" width="50%">
+
+### ✋ Sample 5 — Five Fingers
+
+<img src="https://github.com/snehassneha4578-collab/AI-Hand-Gesture-Presentation-Automation/raw/main/docs/images/gesture-sample-5.jpg" alt="Five-finger open-palm gesture sample" width="260">
+
+**Status:** Not a configured command
+
+An open palm must not trigger a presentation action unless explicitly mapped.
+
+</td>
+</tr>
+</table>
+
+> **Note:** These images must exist at the specified paths in the repository. If an image still fails to render, verify its filename, capitalization, and GitHub path.
 
 ---
 
